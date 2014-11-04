@@ -1,15 +1,14 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>cholewinski</groupId>
     <artifactId>OAP_SWD</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
   </parent>
   <groupId>cholewinski</groupId>
   <artifactId>OAP_SWD_Client</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <name>OAP_SWD_Client</name>
   <url>http://maven.apache.org</url>
   <properties>
@@ -25,13 +24,13 @@
     <dependency>
       <groupId>cholewinski</groupId>
       <artifactId>OAP_SWD_Facade_Api</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>1.0</version>
       <scope>compile</scope>
     </dependency>
 	<dependency>
       <groupId>cholewinski</groupId>
       <artifactId>OAP_SWD_Facade</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>1.0</version>
       <scope>compile</scope>
     </dependency>
   </dependencies>
