@@ -32,9 +32,9 @@
     <module>OAP_SWD_Facade_Api</module>
   </modules>
   <scm>
-	<connection>scm:git:git@github.com/michalcholewinski/OptimalAllotmentProblem.git</connection>
-	<url>scm:git:git@github.com/michalcholewinski/OptimalAllotmentProblem.git</url>
-	<developerConnection>scm:git:git@github.com/michalcholewinski/OptimalAllotmentProblem.git</developerConnection>
+	<connection>scm:git:https://github.com/michalcholewinski/OptimalAllotmentProblem.git</connection>
+	<url>scm:git:https://github.com/michalcholewinski/OptimalAllotmentProblem.git</url>
+	<developerConnection>scm:https://git@github.com/michalcholewinski/OptimalAllotmentProblem.git</developerConnection>
   </scm>
     <build>
     <plugins>
