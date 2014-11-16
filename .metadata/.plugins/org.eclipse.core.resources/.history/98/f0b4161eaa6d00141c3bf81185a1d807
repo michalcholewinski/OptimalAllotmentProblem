@@ -1,0 +1,16 @@
+package db.structure.items;
+
+public interface Sequence {
+	public Long getTarifCurrvalSequence();
+	public Long getTarifNextvalSequence();
+	public Long getFerrymanCurrvalSequence();
+	public Long getFerrymanNextSequence();
+	public Long getUserCurrvalSequence();
+	public Long getUserNextvalSequence();
+	
+	public void setTarifCurrvalSequence(Long currval);
+	public void setFerrymanCurrvalSequence(Long currval);
+	public void setTarifCurrvalSequence(Long currval);
+	
+
+}

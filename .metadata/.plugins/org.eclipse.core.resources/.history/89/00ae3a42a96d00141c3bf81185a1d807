@@ -1,0 +1,17 @@
+package db.structure.items;
+
+import java.util.List;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+public interface Root {
+	public List<Ferryman> getFerymans();
+	@XmlElementWrapper(name = "ferrymans")
+	@XmlElement(name = "ferryman")
+	public void setFerrymans(List<Ferryman> ferrymans);
+	public List<User> getUsers();
+	public void setUsers(List<User> users);
+	public List<Sequence> getSequences();
+	public void setSequences(List<Sequence> sequences);
+}

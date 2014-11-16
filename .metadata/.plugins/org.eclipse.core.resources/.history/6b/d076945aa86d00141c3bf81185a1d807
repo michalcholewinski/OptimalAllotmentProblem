@@ -1,0 +1,10 @@
+package db.structure.items;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+public interface Root {
+	private List<Ferryman> ferrymans;
+	private List<Worker> workers;
+
+}

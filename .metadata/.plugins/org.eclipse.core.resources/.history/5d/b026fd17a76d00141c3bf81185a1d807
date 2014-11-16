@@ -1,0 +1,8 @@
+package db.structure.items;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "database")
+public class Root {
+
+}

@@ -1,0 +1,6 @@
+db\structure\items\implementation\UserImpl.class
+db\structure\items\implementation\SequenceImpl.class
+db\structure\items\implementation\SystemXMLImpl.class
+db\structure\items\implementation\RootImpl.class
+db\structure\items\implementation\TarifImpl.class
+db\structure\items\implementation\FerrymanImpl.class

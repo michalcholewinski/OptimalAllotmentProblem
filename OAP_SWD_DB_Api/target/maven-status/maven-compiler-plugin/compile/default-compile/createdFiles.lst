@@ -1,0 +1,6 @@
+db\structure\items\Root.class
+db\structure\items\SystemXML.class
+db\structure\items\Ferryman.class
+db\structure\items\Sequence.class
+db\structure\items\Tarif.class
+db\structure\items\User.class
