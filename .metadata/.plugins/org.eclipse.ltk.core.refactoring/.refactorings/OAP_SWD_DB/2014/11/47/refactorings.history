@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;sequences&apos; in &apos;db.structure.items.implementation.Root&apos; to &apos;sequence&apos;&#x0D;&#x0A;- Original project: &apos;OAP_SWD_DB&apos;&#x0D;&#x0A;- Original element: &apos;db.structure.items.implementation.Root.sequences&apos;&#x0D;&#x0A;- Renamed element: &apos;db.structure.items.implementation.Root.sequence&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;sequences&apos;" flags="589826" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src\/main\/java&lt;db.structure.items.implementation{Root.java[Root^sequences" name="sequence" references="true" setter="false" stamp="1416335699022" textual="false" version="1.0"/>
+</session>

@@ -1,7 +1,0 @@
-package db.structure.items;
-
-public interface Ferryman {
-	public Long getId();
-	public String getName();
-	public 
-}

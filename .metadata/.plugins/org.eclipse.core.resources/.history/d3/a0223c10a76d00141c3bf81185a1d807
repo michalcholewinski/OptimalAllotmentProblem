@@ -1,6 +1,0 @@
-package db.structure.items;
-
-@XmlRootElement(name = "database")
-public class Root {
-
-}

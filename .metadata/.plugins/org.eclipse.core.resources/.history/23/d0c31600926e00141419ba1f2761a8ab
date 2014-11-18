@@ -1,0 +1,10 @@
+package tools.xml;
+
+
+public interface XMLReaderAndWriter {
+	public String DB_FILE_NAME= "../DB_OAP.xml";
+	
+	public void setDbFileName(String fileName);
+	public SystemXMLImpl readSystemXML();
+	public void writeSystemXML(SystemXMLImpl systemXML);
+}

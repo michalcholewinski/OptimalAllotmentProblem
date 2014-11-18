@@ -25,7 +25,6 @@
   <modules>
     <module>OAP_SWD_Client</module>
     <module>OAP_SWD_DB</module>
-    <module>OAP_SWD_DB_Api</module>
     <module>OAP_SWD_DAO</module>
     <module>OAP_SWD_DAO_Api</module>
     <module>OAP_SWD_Facade</module>

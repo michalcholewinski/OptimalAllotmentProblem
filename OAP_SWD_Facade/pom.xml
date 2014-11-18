@@ -23,12 +23,6 @@
     </dependency>
 	<dependency>
       <groupId>cholewinski</groupId>
-      <artifactId>OAP_SWD_DB_Api</artifactId>
-      <version>1.0</version>
-      <scope>compile</scope>
-    </dependency>
-	<dependency>
-      <groupId>cholewinski</groupId>
       <artifactId>OAP_SWD_DB</artifactId>
       <version>1.0</version>
       <scope>compile</scope>

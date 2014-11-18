@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Rerun tools.xml.implementation.XMLReaderAndWriterImplTest.shouldAddOneUser" project="OAP_SWD_DAO" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testcase name="shouldAddOneUser" classname="tools.xml.implementation.XMLReaderAndWriterImplTest" time="0.5"/>
+</testrun>

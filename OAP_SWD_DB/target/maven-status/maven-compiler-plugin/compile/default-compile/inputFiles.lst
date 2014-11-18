@@ -1,6 +1,6 @@
-D:\OAP\OAP_SWD\OAP_SWD_DB\src\main\java\db\structure\items\implementation\RootImpl.java
-D:\OAP\OAP_SWD\OAP_SWD_DB\src\main\java\db\structure\items\implementation\SequenceImpl.java
-D:\OAP\OAP_SWD\OAP_SWD_DB\src\main\java\db\structure\items\implementation\TarifImpl.java
-D:\OAP\OAP_SWD\OAP_SWD_DB\src\main\java\db\structure\items\implementation\SystemXMLImpl.java
-D:\OAP\OAP_SWD\OAP_SWD_DB\src\main\java\db\structure\items\implementation\UserImpl.java
-D:\OAP\OAP_SWD\OAP_SWD_DB\src\main\java\db\structure\items\implementation\FerrymanImpl.java
+D:\OAP\OAP_SWD\OAP_SWD_DB\src\main\java\db\structure\items\implementation\Sequence.java
+D:\OAP\OAP_SWD\OAP_SWD_DB\src\main\java\db\structure\items\implementation\Tarif.java
+D:\OAP\OAP_SWD\OAP_SWD_DB\src\main\java\db\structure\items\implementation\Root.java
+D:\OAP\OAP_SWD\OAP_SWD_DB\src\main\java\db\structure\items\implementation\User.java
+D:\OAP\OAP_SWD\OAP_SWD_DB\src\main\java\db\structure\items\implementation\SystemXML.java
+D:\OAP\OAP_SWD\OAP_SWD_DB\src\main\java\db\structure\items\implementation\Ferryman.java

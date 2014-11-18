@@ -1,11 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
   <name>OAP_SWD_DAO</name>
-  <comment>NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
+  <comment/>
   <projects>
-    <project>OAP_SWD_DB_Api</project>
-    <project>OAP_SWD_DB</project>
     <project>OAP_SWD_DAO_Api</project>
+    <project>OAP_SWD_DB</project>
   </projects>
   <buildSpec>
     <buildCommand>
