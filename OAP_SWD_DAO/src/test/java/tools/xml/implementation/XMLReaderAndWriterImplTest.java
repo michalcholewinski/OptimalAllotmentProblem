@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import tools.xml.XMLReaderAndWriter;
+import tools.xml.XMLReaderAndWriterImpl;
 import db.structure.items.implementation.Ferryman;
 import db.structure.items.implementation.Root;
 import db.structure.items.implementation.Sequence;
@@ -23,6 +24,7 @@ public class XMLReaderAndWriterImplTest {
 	@Before
 	public void setup(){
 		xmlRAW=XMLReaderAndWriterImpl.getInstance();
+		xmlRAW.setDbFileName(testDBFileName);
 	}
 	
 	

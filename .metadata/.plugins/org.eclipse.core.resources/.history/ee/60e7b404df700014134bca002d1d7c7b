@@ -1,0 +1,5 @@
+package dao.crud;
+
+public interface UserDao {
+
+}

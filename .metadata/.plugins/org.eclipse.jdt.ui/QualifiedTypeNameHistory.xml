@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlRootElement"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlElement"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="db.structure.items.implementation.User"/>
+<fullyQualifiedTypeName name="org.omg.CORBA.UNKNOWN"/>
+<fullyQualifiedTypeName name="db.structure.items.implementation.Tarif"/>
+<fullyQualifiedTypeName name="db.structure.items.implementation.Root"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="db.structure.items.implementation.Sequence"/>
+<fullyQualifiedTypeName name="java.security.NoSuchAlgorithmException"/>
+<fullyQualifiedTypeName name="db.dao.DbDaoInterface"/>
+<fullyQualifiedTypeName name="db.dao.DbDao"/>
 </qualifiedTypeNameHistroy>
