@@ -1,7 +1,9 @@
 <projectDescription>
   <name>OAP_SWD_DB</name>
   <comment/>
-  <projects/>
+  <projects>
+    <project>OAP_SWD_Utils</project>
+  </projects>
   <buildSpec>
     <buildCommand>
       <name>org.eclipse.jdt.core.javabuilder</name>

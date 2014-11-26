@@ -1,1 +1,2 @@
-tools\xml\implementation\XMLReaderAndWriterImplTest.class
+tools\xml\XMLReaderAndWriterImplTest.class
+dao\entities\UserDaoImplTest.class

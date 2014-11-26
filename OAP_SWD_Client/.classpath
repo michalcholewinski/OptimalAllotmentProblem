@@ -9,5 +9,6 @@
   <classpathentry kind="src" path="/OAP_SWD_DB"/>
   <classpathentry kind="src" path="/OAP_SWD_Facade"/>
   <classpathentry kind="src" path="/OAP_SWD_Facade_Api"/>
+  <classpathentry kind="src" path="/OAP_SWD_Utils"/>
   <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 </classpath>

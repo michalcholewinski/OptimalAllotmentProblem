@@ -18,6 +18,7 @@ public interface UserDao {
 	public List<User> findUserBySurname(String surname);
 	public List<User> findUserByNameAndSurname(String name, String surname);
 	public List<User> findUserByLogin(String login);
+	public void setTestDataFileName(String fileName);
 	
 	/**
 	 * 

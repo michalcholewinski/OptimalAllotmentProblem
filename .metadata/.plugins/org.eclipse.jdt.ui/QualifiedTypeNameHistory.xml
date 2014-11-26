@@ -8,9 +8,9 @@
 <fullyQualifiedTypeName name="db.structure.items.implementation.Tarif"/>
 <fullyQualifiedTypeName name="db.structure.items.implementation.Root"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="db.structure.items.implementation.Sequence"/>
 <fullyQualifiedTypeName name="java.security.NoSuchAlgorithmException"/>
+<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="db.dao.DbDaoInterface"/>
 <fullyQualifiedTypeName name="db.dao.DbDao"/>
 </qualifiedTypeNameHistroy>

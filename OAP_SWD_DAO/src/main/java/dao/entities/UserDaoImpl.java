@@ -4,6 +4,8 @@ import java.util.List;
 
 import db.dao.DbDao;
 import db.dao.DbDaoInterface;
+import db.structure.items.implementation.Sequence;
+import db.structure.items.implementation.SystemXML;
 import db.structure.items.implementation.User;
 
 public class UserDaoImpl implements UserDao {
@@ -21,8 +23,33 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public User createUser(User user) {
-		// TODO Auto-generated method stub
-		return null;
+		//TODO add own exception and test it
+		SystemXML systemXML = dbDao.getSystemXML();
+		Sequence sequence = systemXML.getRoot().getSequence();
+		if(sequence.getUserCurrvalSequence()==0){
+			user.setId(sequence.getUserCurrvalSequence()+1);
+		}
+		
+		if(systemXML.getRoot().getUsers().contains(user)){
+			return null; //the same record exist in DB
+		}
+		
+		for(User u:systemXML.getRoot().getUsers()){
+			if(u.hasSameBussinessKey(user)){
+				return null; //business key unique exception
+			}
+		}
+		
+		
+		systemXML.getRoot().getUsers().add(user);
+		for(User u:systemXML.getRoot().getUsers()){
+			if(user.equals(u)){
+				sequence.setUserCurrvalSequence(sequence.getUserCurrvalSequence()+1);
+				return u;
+			}
+		}
+		
+		return null; //Not added
 	}
 
 	@Override
@@ -65,6 +92,12 @@ public class UserDaoImpl implements UserDao {
 	public User checkIfCorrectLogonData(String login, String password) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void setTestDataFileName(String fileName) {
+		dbDao.setTestDataFileName(fileName);
+		
 	}
 
 }

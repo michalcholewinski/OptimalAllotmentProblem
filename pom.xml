@@ -29,6 +29,7 @@
     <module>OAP_SWD_DAO_Api</module>
     <module>OAP_SWD_Facade</module>
     <module>OAP_SWD_Facade_Api</module>
+    <module>OAP_SWD_Utils</module>
   </modules>
   <scm>
 	<connection>scm:git:https://github.com/michalcholewinski/OptimalAllotmentProblem.git</connection>

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-<typeInfo handle="=OAP_SWD_DAO_Api/src\/main\/java&lt;tools.md5{MD5Decoder.java[MD5Decoder" modifiers="513" timestamp="1416161137754"/>
-<typeInfo handle="=OAP_SWD_DAO_Api/src\/main\/java&lt;db.dao{DbDaoInterface.java[DbDaoInterface" modifiers="513" timestamp="1416420712049"/>
+<typeInfo handle="=OAP_SWD_DAO_Api/src\/main\/java&lt;tools.md5{MD5Decoder.java[MD5Decoder" modifiers="513" timestamp="1416413171576"/>
+<typeInfo handle="=OAP_SWD_DAO_Api/src\/main\/java&lt;db.dao{DbDaoInterface.java[DbDaoInterface" modifiers="513" timestamp="1416421562025"/>
+<typeInfo handle="=OAP_SWD_DAO_Api/src\/main\/java&lt;dao.entities{FerrymanDao.java[FerrymanDao" modifiers="513" timestamp="1416512171327"/>
+<typeInfo handle="=OAP_SWD_DAO_Api/src\/main\/java&lt;dao.entities{UserDao.java[UserDao" modifiers="513" timestamp="1416512171296"/>
 </typeInfoHistroy>

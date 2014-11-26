@@ -5,6 +5,7 @@
     <project>OAP_SWD_DAO</project>
     <project>OAP_SWD_DAO_Api</project>
     <project>OAP_SWD_DB</project>
+    <project>OAP_SWD_Utils</project>
   </projects>
   <buildSpec>
     <buildCommand>

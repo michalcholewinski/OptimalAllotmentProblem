@@ -2,6 +2,7 @@ package db.structure.items.implementation;
 
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -15,10 +16,15 @@ public class Tarif {
 	private Date insertDate;
 	private Date updateDate;
 
+	public Tarif() {
+		insertDate=new Date();
+		updateDate=new Date();
+	}
+	
 	public Long getId() {
 		return id;
 	}
-
+	@XmlElement(required=true)
 	public void setId(Long id) {
 		this.id = id;
 
@@ -27,7 +33,8 @@ public class Tarif {
 	public int getWeight() {
 		return weight;
 	}
-
+	
+	@XmlElement(required=true)
 	public void setWeight(int weight) {
 		this.weight = weight;
 
@@ -37,6 +44,7 @@ public class Tarif {
 		return price;
 	}
 
+	@XmlElement(required=true)
 	public void setPrice(float price) {
 		this.price = price;
 	}
@@ -67,4 +75,8 @@ public class Tarif {
 				.equals(updateDate));
 	}
 
+	
+	public boolean hasSameBussinessKey(Tarif tarif){
+		return (tarif.getId()==id || tarif.getWeight()==weight);
+	}
 }

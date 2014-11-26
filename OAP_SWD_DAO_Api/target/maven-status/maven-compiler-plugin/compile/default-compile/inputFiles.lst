@@ -1,3 +1,5 @@
 D:\OAP\OAP_SWD\OAP_SWD_DAO_Api\src\main\java\tools\md5\MD5Decoder.java
 D:\OAP\OAP_SWD\OAP_SWD_DAO_Api\src\main\java\tools\xml\XMLReaderAndWriter.java
 D:\OAP\OAP_SWD\OAP_SWD_DAO_Api\src\main\java\db\dao\DbDaoInterface.java
+D:\OAP\OAP_SWD\OAP_SWD_DAO_Api\src\main\java\dao\entities\FerrymanDao.java
+D:\OAP\OAP_SWD\OAP_SWD_DAO_Api\src\main\java\dao\entities\UserDao.java

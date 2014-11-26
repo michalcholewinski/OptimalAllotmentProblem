@@ -12,24 +12,33 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "ferryman")
 public class Ferryman {
 	private Long id;
-	private String name;
+	private String name; 
 	private Date insertDate;
 	private Date updateDate;
 	private List<Tarif> priceList=new ArrayList<Tarif>();
 
+	public Ferryman() {
+		name=new String();
+		insertDate=new Date();
+		updateDate=new Date();
+	}
+	
 	public Long getId() {
 		return id;
 	}
 
+	@XmlElement(required=true)
 	public void setId(Long id) {
 		this.id = id;
 
 	}
 
+	
 	public String getName() {
 		return name;
 	}
 
+	@XmlElement(required=true)
 	public void setName(String name) {
 		this.name = name;
 
@@ -69,6 +78,10 @@ public class Ferryman {
 		return (ferryman.getId() == id && ferryman.getName().equals(name)
 				&& ferryman.getInsertDate().equals(insertDate) && ferryman
 				.getUpdateDate().equals(updateDate) && samePriceList);
+	}
+	
+	public boolean hasSameBussinessKey(Ferryman ferryman){
+		return (ferryman.getId()==id || ferryman.getName().equals(name));
 	}
 
 }

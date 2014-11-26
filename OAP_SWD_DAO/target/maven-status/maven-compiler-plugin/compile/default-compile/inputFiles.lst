@@ -1,1 +1,5 @@
-D:\OAP\OAP_SWD\OAP_SWD_DAO\src\main\java\tools\xml\implementation\XMLReaderAndWriterImpl.java
+D:\OAP\OAP_SWD\OAP_SWD_DAO\src\main\java\tools\xml\XMLReaderAndWriterImpl.java
+D:\OAP\OAP_SWD\OAP_SWD_DAO\src\main\java\db\dao\DbDao.java
+D:\OAP\OAP_SWD\OAP_SWD_DAO\src\main\java\dao\entities\UserDaoImpl.java
+D:\OAP\OAP_SWD\OAP_SWD_DAO\src\main\java\dao\entities\FerrymanDaoImpl.java
+D:\OAP\OAP_SWD\OAP_SWD_DAO\src\main\java\tools\md5\MD5DecoderImpl.java

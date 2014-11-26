@@ -1,0 +1,78 @@
+package dao.entities;
+
+import static org.junit.Assert.fail;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+import db.structure.items.implementation.User;
+
+public class UserDaoImplTest {
+
+	private UserDao userDao;
+	
+	@Before
+	public void setup(){
+		userDao=new UserDaoImpl();
+	}
+	
+	@Test
+	public void shouldGetUserById() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void shouldCreateUser() {
+		User user=new User();
+		User userFromDb = userDao.createUser(user);
+		
+		Assert.assertEquals(user, userFromDb);
+	}
+
+	@Test
+	public void shouldCreateUserThrowUniqueConstraintException() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void shouldCreateUserThrowDuplicateEntityException() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void shouldUpdateUser() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void shouldDeleteUser() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testFindUserByName() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testFindUserBySurname() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testFindUserByNameAndSurname() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testFindUserByLogin() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testCheckIfCorrectLogonData() {
+		fail("Not yet implemented");
+	}
+
+}
