@@ -1,0 +1,13 @@
+package oap.utils.xml.enums;
+
+import tools.xml.XMLReaderAndWriter;
+
+public enum DatabaseName {
+	TEST_DB("DB_TEST.xml"),
+	PROD_DB("DB_OAP.xml")
+	
+	private String fileName;
+	
+	
+
+}

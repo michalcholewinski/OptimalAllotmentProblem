@@ -1,5 +1,0 @@
-package dao.crud;
-
-public interface UserCrud {
-
-}

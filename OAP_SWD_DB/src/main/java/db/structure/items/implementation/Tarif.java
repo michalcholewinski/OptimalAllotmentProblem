@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(propOrder = { "id", "weight", "price", "insertDate", "updateDate" })
 public class Tarif {
 
-	private Long id;
+	private long id;
 	private int weight;
 	private float price;
 	private Date insertDate;
@@ -21,11 +21,11 @@ public class Tarif {
 		updateDate=new Date();
 	}
 	
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 	@XmlElement(required=true)
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 
 	}

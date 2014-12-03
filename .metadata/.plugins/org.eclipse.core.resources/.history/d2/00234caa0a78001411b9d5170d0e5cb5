@@ -1,0 +1,6 @@
+package oap.utils.exceptions;
+
+public class ElementExistInDatabaseException extends Exception {
+
+	private String message;
+}

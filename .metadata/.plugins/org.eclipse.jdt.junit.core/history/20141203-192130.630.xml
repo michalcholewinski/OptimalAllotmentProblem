@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Rerun dao.entities.UserDaoImplTest" project="OAP_SWD_DAO" tests="12" started="12" failures="0" errors="0" ignored="0">
+  <testsuite name="dao.entities.UserDaoImplTest" time="1.076">
+    <testcase name="shouldUpdateUser" classname="dao.entities.UserDaoImplTest" time="0.466"/>
+    <testcase name="shouldUpdateUserThrowNonUniqueDataException" classname="dao.entities.UserDaoImplTest" time="0.031"/>
+    <testcase name="shouldFindUserBySurname" classname="dao.entities.UserDaoImplTest" time="0.026"/>
+    <testcase name="shouldFindUserByName" classname="dao.entities.UserDaoImplTest" time="0.023"/>
+    <testcase name="shouldCreateUser" classname="dao.entities.UserDaoImplTest" time="0.047"/>
+    <testcase name="shouldFindUserByLogin" classname="dao.entities.UserDaoImplTest" time="0.04"/>
+    <testcase name="shouldDeleteUserThrowException" classname="dao.entities.UserDaoImplTest" time="0.034"/>
+    <testcase name="shouldFindUserByNameAndSurname" classname="dao.entities.UserDaoImplTest" time="0.07"/>
+    <testcase name="shouldDeleteUser" classname="dao.entities.UserDaoImplTest" time="0.07"/>
+    <testcase name="shouldCreateUserThrowUniqueConstraintException" classname="dao.entities.UserDaoImplTest" time="0.111"/>
+    <testcase name="shouldCheckIfCorrectLogonData" classname="dao.entities.UserDaoImplTest" time="0.078"/>
+    <testcase name="shouldCreateUserThrowElementExistInDatabaseException" classname="dao.entities.UserDaoImplTest" time="0.08"/>
+  </testsuite>
+</testrun>

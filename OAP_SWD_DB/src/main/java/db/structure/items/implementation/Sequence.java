@@ -6,31 +6,31 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name="sequence")
 @XmlType(propOrder = { "tarifCurrvalSequence", "ferrymanCurrvalSequence","userCurrvalSequence"})
 public class Sequence {
-	private Long tarifCurrvalSequence;
-	private Long ferrymanCurrvalSequence;
-	private Long userCurrvalSequence;
+	private long tarifCurrvalSequence;
+	private long ferrymanCurrvalSequence;
+	private long userCurrvalSequence;
 
-	public Long getTarifCurrvalSequence() {
+	public long getTarifCurrvalSequence() {
 		return tarifCurrvalSequence;
 	}
 
-	public void setTarifCurrvalSequence(Long currval) {
+	public void setTarifCurrvalSequence(long currval) {
 		tarifCurrvalSequence = currval;
 	}
 
-	public Long getFerrymanCurrvalSequence() {
+	public long getFerrymanCurrvalSequence() {
 		return ferrymanCurrvalSequence;
 	}
 
-	public void setFerrymanCurrvalSequence(Long currval) {
+	public void setFerrymanCurrvalSequence(long currval) {
 		ferrymanCurrvalSequence = currval;
 	}
 
-	public Long getUserCurrvalSequence() {
+	public long getUserCurrvalSequence() {
 		return userCurrvalSequence;
 	}
 
-	public void setUserCurrvalSequence(Long currval) {
+	public void setUserCurrvalSequence(long currval) {
 		userCurrvalSequence = currval;
 	}
 }

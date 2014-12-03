@@ -1,0 +1,34 @@
+package dao.entities;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class FerrymanDaoImplTest {
+
+	@Test
+	public void testGetFerrymanById() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testCreateFerryman() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testUpdateFerryman() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testDeleteFerryman() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testFindFerrymanByName() {
+		fail("Not yet implemented");
+	}
+
+}

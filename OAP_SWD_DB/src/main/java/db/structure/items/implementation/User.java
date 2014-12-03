@@ -7,14 +7,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "user")
-@XmlType(propOrder = { "id", "name", "surname", "login", "password",
+@XmlType(propOrder = { "id", "name", "surname", "login", "password","role",
 		"insertDate", "updateDate" })
 public class User {
-	private Long id;
+	private long id;
 	private String name;
 	private String surname;
 	private String login;
 	private String password;
+	private String role;
 	private Date insertDate;
 	private Date updateDate;
 
@@ -23,15 +24,16 @@ public class User {
 		surname=new String();
 		login=new String();
 		password=new String();
+		role=new String();
 		insertDate=new Date();
 		updateDate=new Date();
 	}
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
 	@XmlElement(required=true)
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -68,6 +70,15 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	@XmlElement(required=true)
+	public void setRole(String role) {
+		this.role = role;
+	}
+	
+	public String getRole() {
+		return role;
+	}
 
 	public Date getInsertDate() {
 		return insertDate;
@@ -93,7 +104,7 @@ public class User {
 				&& user.getPassword().equals(password)
 				&& user.getSurname().equals(surname)
 				&& user.getInsertDate().equals(insertDate) && user
-				.getUpdateDate().equals(updateDate));
+				.getUpdateDate().equals(updateDate) &&user.getRole().equals(role));
 	}
 
 	public boolean hasSameBussinessKey(User user) {

@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "ferryman")
 public class Ferryman {
-	private Long id;
+	private long id;
 	private String name; 
 	private Date insertDate;
 	private Date updateDate;
@@ -23,12 +23,12 @@ public class Ferryman {
 		updateDate=new Date();
 	}
 	
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
 	@XmlElement(required=true)
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 
 	}

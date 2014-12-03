@@ -1,0 +1,5 @@
+package oap.utils.exceptions;
+
+public class NotCompleteDataException {
+
+}

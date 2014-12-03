@@ -6,7 +6,6 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
-import tools.xml.XMLReaderAndWriter;
 import db.structure.items.implementation.SystemXML;
 
 public class XMLReaderAndWriterImpl implements XMLReaderAndWriter {
@@ -48,6 +47,7 @@ public class XMLReaderAndWriterImpl implements XMLReaderAndWriter {
 		}
 
 	}
+
 
 	public static XMLReaderAndWriter getInstance() {
 		

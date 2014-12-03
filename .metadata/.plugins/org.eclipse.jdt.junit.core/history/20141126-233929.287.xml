@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="Rerun tools.xml.XMLReaderAndWriterImplTest" project="OAP_SWD_DAO" tests="4" started="4" failures="0" errors="0" ignored="0">
-  <testsuite name="tools.xml.XMLReaderAndWriterImplTest" time="0.604">
-    <testcase name="shouldAddOneFerrymanWithOneTarifInPriceList" classname="tools.xml.XMLReaderAndWriterImplTest" time="0.415"/>
-    <testcase name="shouldAddOneUser" classname="tools.xml.XMLReaderAndWriterImplTest" time="0.051"/>
-    <testcase name="shouldAddOneFerryman" classname="tools.xml.XMLReaderAndWriterImplTest" time="0.053"/>
-    <testcase name="shouldAddSequence" classname="tools.xml.XMLReaderAndWriterImplTest" time="0.085"/>
-  </testsuite>
-</testrun>

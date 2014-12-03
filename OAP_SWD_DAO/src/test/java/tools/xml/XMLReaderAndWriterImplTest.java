@@ -5,14 +5,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import tools.xml.XMLReaderAndWriter;
-import tools.xml.XMLReaderAndWriterImpl;
 import db.structure.items.implementation.Ferryman;
 import db.structure.items.implementation.Root;
 import db.structure.items.implementation.Sequence;

@@ -1,1 +1,8 @@
-cholewinski\App.class
+oap\utils\exceptions\ElementNotExistInDatabaseException.class
+oap\utils\exceptions\CannotAddElementException.class
+oap\utils\xml\enums\DatabaseName.class
+oap\utils\exceptions\MyException.class
+oap\utils\exceptions\NotCompleteDataException.class
+oap\utils\exceptions\ValidationException.class
+oap\utils\exceptions\ElementExistInDatabaseException.class
+oap\utils\exceptions\NonUniqueDataException.class

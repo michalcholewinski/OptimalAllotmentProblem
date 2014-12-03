@@ -1,1 +1,8 @@
-D:\OAP\OAP_SWD\OAP_SWD_Utils\src\main\java\cholewinski\App.java
+D:\OAP\OAP_SWD\OAP_SWD_Utils\src\main\java\oap\utils\exceptions\NonUniqueDataException.java
+D:\OAP\OAP_SWD\OAP_SWD_Utils\src\main\java\oap\utils\xml\enums\DatabaseName.java
+D:\OAP\OAP_SWD\OAP_SWD_Utils\src\main\java\oap\utils\exceptions\MyException.java
+D:\OAP\OAP_SWD\OAP_SWD_Utils\src\main\java\oap\utils\exceptions\CannotAddElementException.java
+D:\OAP\OAP_SWD\OAP_SWD_Utils\src\main\java\oap\utils\exceptions\ElementExistInDatabaseException.java
+D:\OAP\OAP_SWD\OAP_SWD_Utils\src\main\java\oap\utils\exceptions\NotCompleteDataException.java
+D:\OAP\OAP_SWD\OAP_SWD_Utils\src\main\java\oap\utils\exceptions\ElementNotExistInDatabaseException.java
+D:\OAP\OAP_SWD\OAP_SWD_Utils\src\main\java\oap\utils\exceptions\ValidationException.java

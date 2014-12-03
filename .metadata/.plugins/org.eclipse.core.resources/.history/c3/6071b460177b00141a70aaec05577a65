@@ -1,0 +1,169 @@
+package dao.entities;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import oap.utils.exceptions.CannotAddElementException;
+import oap.utils.exceptions.ElementExistInDatabaseException;
+import oap.utils.exceptions.NonUniqueDataException;
+import oap.utils.exceptions.NotCompleteDataException;
+import oap.utils.xml.enums.DatabaseName;
+
+import com.google.common.base.Strings;
+
+import db.dao.DbDao;
+import db.dao.DbDaoInterface;
+import db.structure.items.implementation.Sequence;
+import db.structure.items.implementation.SystemXML;
+import db.structure.items.implementation.User;
+
+public class UserDaoImpl implements UserDao {
+	private DbDaoInterface dbDao;
+
+	public UserDaoImpl(DatabaseName databaseFileName) {
+		dbDao = DbDao.getInstance(databaseFileName);
+	}
+
+	@Override
+	public User getUserById(Long id) {
+		SystemXML systemXML = dbDao.getSystemXML();
+		
+		for(User user: systemXML.getRoot().getUsers()){
+			if(user.getId()==id){
+				return user;
+			}
+		}
+		
+		return null;
+	}
+
+	private boolean isUserComplete(User user) {
+
+		return (!Strings.isNullOrEmpty(user.getLogin())
+				&& !Strings.isNullOrEmpty(user.getPassword())
+				&& !Strings.isNullOrEmpty(user.getName()) && !Strings
+					.isNullOrEmpty(user.getSurname()));
+	}
+
+	@Override
+	public User createUser(User user) throws NonUniqueDataException,
+			ElementExistInDatabaseException, CannotAddElementException,
+			NotCompleteDataException {
+		if(!isUserComplete(user)){
+			throw new NotCompleteDataException();
+		}
+		SystemXML systemXML = dbDao.getSystemXML();
+
+		Sequence sequence = systemXML.getRoot().getSequence();
+		if (sequence.getUserCurrvalSequence() == 0) {
+			user.setId(sequence.getUserCurrvalSequence() + 1);
+		}
+
+		if (systemXML.getRoot().getUsers().contains(user)) {
+			throw new ElementExistInDatabaseException();
+		}
+
+		for (User u : systemXML.getRoot().getUsers()) {
+			if (u.hasSameBussinessKey(user)) {
+				throw new NonUniqueDataException();
+			}
+		}
+
+		systemXML.getRoot().getUsers().add(user);
+		for (User u : systemXML.getRoot().getUsers()) {
+			if (user.equals(u)) {
+				sequence.setUserCurrvalSequence(sequence
+						.getUserCurrvalSequence() + 1);
+				return u;
+			}
+		}
+
+		throw new CannotAddElementException();
+	}
+
+	@Override
+	public User updateUser(User user) throws NonUniqueDataException {
+		SystemXML systemXML = dbDao.getSystemXML();
+		User updatedUser = getUserById(user.getId());
+		for(User u: systemXML.getRoot().getUsers()){
+			if(u.hasSameBussinessKey(user)){
+				throw new NonUniqueDataException();
+			}
+		}
+		updatedUser.setName(user.getName());
+		updatedUser.setSurname(user.getSurname());
+		updatedUser.setLogin(user.getLogin());
+		updatedUser.setPassword(user.getPassword());
+		updatedUser.setRole(user.getRole());
+		updatedUser.setUpdateDate(new Date());
+		
+		return updatedUser;
+	}
+
+	@Override
+	public void deleteUser(User user) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public List<User> findUserByName(String name) {
+		List<User> users = new ArrayList<User>();
+		SystemXML systemXML = dbDao.getSystemXML();
+		for(User u: systemXML.getRoot().getUsers()){
+			if(u.getName().equals(name)){
+				users.add(u);
+			}
+		}
+		return users;
+	}
+
+	@Override
+	public List<User> findUserBySurname(String surname) {
+		List<User> users = new ArrayList<User>();
+		SystemXML systemXML = dbDao.getSystemXML();
+		for(User u: systemXML.getRoot().getUsers()){
+			if(u.getSurname().equals(surname)){
+				users.add(u);
+			}
+		}
+		return users;
+	}
+
+	@Override
+	public List<User> findUserByNameAndSurname(String name, String surname) {
+		List<User> users = new ArrayList<User>();
+		SystemXML systemXML = dbDao.getSystemXML();
+		for(User u: systemXML.getRoot().getUsers()){
+			if(u.getSurname().equals(surname) && u.getName().equals(name)){
+				users.add(u);
+			}
+		}
+		return users;
+	}
+
+	@Override
+	public List<User> findUserByLogin(String login) {
+		List<User> users = new ArrayList<User>();
+		SystemXML systemXML = dbDao.getSystemXML();
+		for(User u: systemXML.getRoot().getUsers()){
+			if(u.getLogin().equals(login)){
+				users.add(u);
+			}
+		}
+		return users;
+	}
+
+	@Override
+	public User checkIfCorrectLogonData(String login, String password) {
+		SystemXML systemXML = dbDao.getSystemXML();
+		for(User u: systemXML.getRoot().getUsers()){
+			if(u.getLogin().equals(login) && u.getPassword().equals(password)){
+				return u;
+			}
+		}
+		return null;
+	}
+
+}

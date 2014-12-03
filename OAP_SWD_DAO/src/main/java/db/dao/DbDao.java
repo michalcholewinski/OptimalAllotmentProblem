@@ -1,5 +1,8 @@
 package db.dao;
 
+import java.io.File;
+
+import oap.utils.xml.enums.DatabaseName;
 import tools.xml.XMLReaderAndWriter;
 import tools.xml.XMLReaderAndWriterImpl;
 import db.structure.items.implementation.Root;
@@ -11,19 +14,27 @@ public class DbDao implements DbDaoInterface {
 	private final SystemXML systemXML;
 	private XMLReaderAndWriter xmlReaderAndWriter;
 
-	private DbDao() {
+	private DbDao(DatabaseName databaseFileName) {
 		xmlReaderAndWriter = XMLReaderAndWriterImpl.getInstance();
-		systemXML = initDB();
+		xmlReaderAndWriter.setDbFileName(databaseFileName.getFileName());
+		systemXML = initDB(databaseFileName);
 	}
 
-	private SystemXML initDB() {
-		SystemXML systemXML = xmlReaderAndWriter.readSystemXML();
-		if (systemXML == null) {
+	private SystemXML initDB(DatabaseName databaseFileName) {
+		
+		SystemXML systemXML;
+		
+		if(new File(databaseFileName.getFileName()).exists()){
+			systemXML = xmlReaderAndWriter.readSystemXML();
+			return systemXML;
+		}else{
 			systemXML = new SystemXML();
 			systemXML.setRoot(new Root());
 			systemXML.getRoot().setSequence(new Sequence());
+			xmlReaderAndWriter.writeSystemXML(systemXML);
+			return systemXML;
 		}
-		return systemXML;
+		
 	}
 
 	@Override
@@ -37,16 +48,15 @@ public class DbDao implements DbDaoInterface {
 
 	}
 
-	public static DbDaoInterface getInstance() {
+	public static DbDaoInterface getInstance(DatabaseName databaseFileName) {
 		if (instance == null) {
-			instance = new DbDao();
+			instance = new DbDao(databaseFileName);
 		}
 		return instance;
 	}
 
-	@Override
-	public void setTestDataFileName(String fileName) {
-		xmlReaderAndWriter.setDbFileName(fileName);
+	public static void resetInstance() {
+		instance=null;
 		
 	}
 
