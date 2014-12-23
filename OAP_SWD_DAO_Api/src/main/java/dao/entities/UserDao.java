@@ -18,7 +18,7 @@ public interface UserDao {
 
 	public User createUser(User user) throws NonUniqueDataException,ElementExistInDatabaseException,CannotAddElementException,NotCompleteDataException;
 
-	public User updateUser(User user) throws NonUniqueDataException;
+	public User updateUser(User user) throws NonUniqueDataException,ElementNotExistInDatabaseException;
 
 	public void deleteUser(User user) throws ElementNotExistInDatabaseException;
 

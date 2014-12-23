@@ -76,8 +76,7 @@ public class Ferryman {
 		
 		boolean samePriceList = (ferryman.getPriceList().isEmpty() && priceList.isEmpty())|| ferryman.getPriceList().equals(priceList);
 		return (ferryman.getId() == id && ferryman.getName().equals(name)
-				&& ferryman.getInsertDate().equals(insertDate) && ferryman
-				.getUpdateDate().equals(updateDate) && samePriceList);
+				&& ferryman.getInsertDate().equals(insertDate) && samePriceList);
 	}
 	
 	public boolean hasSameBussinessKey(Ferryman ferryman){

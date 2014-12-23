@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 D:\OAP\OptimalAllotmentProblem\OAP_SWD_Utils\src\main\java\oap\utils\xml\enums\DatabaseName.java
 D:\OAP\OptimalAllotmentProblem\OAP_SWD_Utils\src\main\java\oap\utils\exceptions\MyException.java
 D:\OAP\OptimalAllotmentProblem\OAP_SWD_Utils\src\main\java\oap\utils\exceptions\NonUniqueDataException.java
@@ -7,3 +8,14 @@ D:\OAP\OptimalAllotmentProblem\OAP_SWD_Utils\src\main\java\oap\utils\xml\enums\R
 D:\OAP\OptimalAllotmentProblem\OAP_SWD_Utils\src\main\java\oap\utils\exceptions\CannotAddElementException.java
 D:\OAP\OptimalAllotmentProblem\OAP_SWD_Utils\src\main\java\oap\utils\exceptions\ElementExistInDatabaseException.java
 D:\OAP\OptimalAllotmentProblem\OAP_SWD_Utils\src\main\java\oap\utils\exceptions\NotCompleteDataException.java
+=======
+D:\OAP\OAP_SWD\OAP_SWD_Utils\src\main\java\oap\utils\exceptions\NonUniqueDataException.java
+D:\OAP\OAP_SWD\OAP_SWD_Utils\src\main\java\oap\utils\xml\enums\DatabaseName.java
+D:\OAP\OAP_SWD\OAP_SWD_Utils\src\main\java\oap\utils\exceptions\MyException.java
+D:\OAP\OAP_SWD\OAP_SWD_Utils\src\main\java\oap\utils\xml\enums\Role.java
+D:\OAP\OAP_SWD\OAP_SWD_Utils\src\main\java\oap\utils\exceptions\CannotAddElementException.java
+D:\OAP\OAP_SWD\OAP_SWD_Utils\src\main\java\oap\utils\exceptions\ElementExistInDatabaseException.java
+D:\OAP\OAP_SWD\OAP_SWD_Utils\src\main\java\oap\utils\exceptions\NotCompleteDataException.java
+D:\OAP\OAP_SWD\OAP_SWD_Utils\src\main\java\oap\utils\exceptions\ElementNotExistInDatabaseException.java
+D:\OAP\OAP_SWD\OAP_SWD_Utils\src\main\java\oap\utils\exceptions\ValidationException.java
+>>>>>>> 71c6dab20db2f8807a9397638133f9e9cc2aa236

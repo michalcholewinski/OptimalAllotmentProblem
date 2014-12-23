@@ -6,6 +6,7 @@ import java.util.List;
 import oap.utils.exceptions.CannotAddElementException;
 import oap.utils.exceptions.ElementExistInDatabaseException;
 import oap.utils.exceptions.ElementNotExistInDatabaseException;
+import oap.utils.exceptions.MyException;
 import oap.utils.exceptions.NonUniqueDataException;
 import oap.utils.exceptions.NotCompleteDataException;
 import oap.utils.xml.enums.DatabaseName;
@@ -111,7 +112,7 @@ public class UserDaoImplTest {
 
 		try {
 			userFromDb = userDao.updateUser(user);
-		} catch (NonUniqueDataException e) {
+		} catch (MyException e) {
 		}
 		Assert.assertEquals(user, userFromDb);
 
@@ -119,7 +120,7 @@ public class UserDaoImplTest {
 
 	@Test(expected = NonUniqueDataException.class)
 	public void shouldUpdateUserThrowNonUniqueDataException()
-			throws NonUniqueDataException {
+			throws NonUniqueDataException,ElementNotExistInDatabaseException {
 		User user = new User();
 		user.setName("Michal");
 		user.setSurname("Cholewinski");
@@ -148,6 +149,22 @@ public class UserDaoImplTest {
 		
 		user0.setName("Michal");
 		userFromDb = userDao.updateUser(user0);
+
+	}
+	
+	@Test(expected = ElementNotExistInDatabaseException.class)
+	public void shouldUpdateUserThrowElementNotExistInDatabaseException()
+			throws NonUniqueDataException,ElementNotExistInDatabaseException {
+		
+		User user0 = new User();
+		user0.setName("Michal0");
+		user0.setSurname("Cholewinski0");
+		user0.setLogin("Michal0");
+		user0.setPassword("*****");
+	
+		
+		user0.setName("Michal");
+		userDao.updateUser(user0);
 
 	}
 

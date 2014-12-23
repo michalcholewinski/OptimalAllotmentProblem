@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 D:\OAP\OptimalAllotmentProblem\OAP_SWD_DAO\src\test\java\dao\entities\UserDaoImplTest.java
 D:\OAP\OptimalAllotmentProblem\OAP_SWD_DAO\src\test\java\dao\entities\FerrymanDaoImplTest.java
 D:\OAP\OptimalAllotmentProblem\OAP_SWD_DAO\src\test\java\tools\xml\XMLReaderAndWriterImplTest.java
+=======
+D:\OAP\OAP_SWD\OAP_SWD_DAO\src\test\java\tools\xml\XMLReaderAndWriterImplTest.java
+D:\OAP\OAP_SWD\OAP_SWD_DAO\src\test\java\dao\entities\UserDaoImplTest.java
+D:\OAP\OAP_SWD\OAP_SWD_DAO\src\test\java\dao\entities\FerrymanDaoImplTest.java
+>>>>>>> 71c6dab20db2f8807a9397638133f9e9cc2aa236

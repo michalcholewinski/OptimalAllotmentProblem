@@ -87,9 +87,12 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public User updateUser(User user) throws NonUniqueDataException {
+	public User updateUser(User user) throws NonUniqueDataException,ElementNotExistInDatabaseException {
 		SystemXML systemXML = dbDao.getSystemXML();
 		User updatedUser = getUserById(user.getId());
+		if(updatedUser==null){
+			throw new ElementNotExistInDatabaseException();
+		}
 		for(User u: systemXML.getRoot().getUsers()){
 			if(u.hasSameBussinessKey(user)){
 				throw new NonUniqueDataException();

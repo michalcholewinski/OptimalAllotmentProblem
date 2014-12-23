@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+=======
+oap\utils\exceptions\ElementNotExistInDatabaseException.class
+oap\utils\exceptions\CannotAddElementException.class
+oap\utils\xml\enums\DatabaseName.class
+oap\utils\xml\enums\Role.class
+oap\utils\exceptions\MyException.class
+oap\utils\exceptions\NotCompleteDataException.class
+>>>>>>> 71c6dab20db2f8807a9397638133f9e9cc2aa236
 oap\utils\exceptions\ValidationException.class
 oap\utils\exceptions\MyException.class
 oap\utils\xml\enums\DatabaseName.class
