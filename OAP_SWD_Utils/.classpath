@@ -1,5 +1,4 @@
 <classpath>
-  <classpathentry kind="src" path="src/test/java" including="**/*.java"/>
   <classpathentry kind="src" path="src/main/java" including="**/*.java"/>
   <classpathentry kind="output" path="eclipse_build"/>
   <classpathentry kind="var" path="M2_REPO/com/google/guava/guava/18.0/guava-18.0.jar"/>

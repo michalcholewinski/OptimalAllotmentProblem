@@ -1,7 +1,5 @@
 package dao.entities;
 
-import static org.junit.Assert.fail;
-
 import java.io.File;
 import java.util.List;
 

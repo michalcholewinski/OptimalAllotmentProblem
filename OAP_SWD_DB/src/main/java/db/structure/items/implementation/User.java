@@ -112,5 +112,19 @@ public class User {
 				|| (user.getName().equals(name) && user.getSurname().equals(
 						surname)) || user.getLogin().equals(login));
 	}
+	
+	
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		User user = new User();
+		user.setId(id);
+		user.setInsertDate(insertDate);
+		user.setLogin(login);
+		user.setName(name);
+		user.setPassword(password);
+		user.setSurname(surname);
+		user.setUpdateDate(updateDate);
+		return user;
+	}
 
 }
