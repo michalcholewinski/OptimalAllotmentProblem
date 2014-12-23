@@ -103,8 +103,7 @@ public class User {
 				&& user.getName().equals(name)
 				&& user.getPassword().equals(password)
 				&& user.getSurname().equals(surname)
-				&& user.getInsertDate().equals(insertDate) && user
-				.getUpdateDate().equals(updateDate) &&user.getRole().equals(role));
+				&& user.getInsertDate().equals(insertDate) && user.getRole().equals(role));
 	}
 
 	public boolean hasSameBussinessKey(User user) {

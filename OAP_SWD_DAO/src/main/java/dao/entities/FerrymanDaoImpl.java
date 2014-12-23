@@ -1,5 +1,7 @@
 package dao.entities;
 
+import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import oap.utils.exceptions.CannotAddElementException;
@@ -71,28 +73,60 @@ public class FerrymanDaoImpl implements FerrymanDao {
 
 	@Override
 	public Ferryman updateFerryman(Ferryman ferryman)
-			throws NonUniqueDataException {
-		// TODO Auto-generated method stub
-		return null;
+			throws NonUniqueDataException, ElementNotExistInDatabaseException {
+		SystemXML systemXML = dbDao.getSystemXML();
+		Ferryman updatedFerryman = getFerrymanById(ferryman.getId());
+		if(updatedFerryman==null){
+			throw new ElementNotExistInDatabaseException();
+		}
+		
+		for(Ferryman f: systemXML.getRoot().getFerrymans()){
+			if(f.hasSameBussinessKey(ferryman)){
+				throw new NonUniqueDataException();
+			}
+		}
+		
+		updatedFerryman.setName(ferryman.getName());
+		updatedFerryman.setPriceList(ferryman.getPriceList());
+		updatedFerryman.setUpdateDate(new Date());
+		
+		return updatedFerryman;
 	}
 
 	@Override
 	public void deleteFerryman(Ferryman ferryman)
 			throws ElementNotExistInDatabaseException {
-		// TODO Auto-generated method stub
+		SystemXML systemXML = dbDao.getSystemXML();
+		Iterator<Ferryman> it=systemXML.getRoot().getFerrymans().iterator();
+		while(it.hasNext()){
+			Ferryman f= it.next();
+			if(f.equals(ferryman)){
+				it.remove();
+				return;
+			}
+		}
+		
+		
+		
+		throw new ElementNotExistInDatabaseException();
 
 	}
 
 	@Override
 	public Ferryman findFerrymanByName(String name) {
-		// TODO Auto-generated method stub
+		SystemXML systemXML = dbDao.getSystemXML();
+		for(Ferryman f: systemXML.getRoot().getFerrymans()){
+			if(f.getName().equals(name)){
+				return f;
+			}
+		}
 		return null;
 	}
 
 	@Override
 	public List<Ferryman> findAllFerrymans() {
-		// TODO Auto-generated method stub
-		return null;
+		SystemXML systemXML = dbDao.getSystemXML();
+		return systemXML.getRoot().getFerrymans();
 	}
 
 }

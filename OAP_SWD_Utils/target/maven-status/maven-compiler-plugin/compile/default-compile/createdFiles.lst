@@ -1,6 +1,7 @@
 oap\utils\exceptions\ElementNotExistInDatabaseException.class
 oap\utils\exceptions\CannotAddElementException.class
 oap\utils\xml\enums\DatabaseName.class
+oap\utils\xml\enums\Role.class
 oap\utils\exceptions\MyException.class
 oap\utils\exceptions\NotCompleteDataException.class
 oap\utils\exceptions\ValidationException.class

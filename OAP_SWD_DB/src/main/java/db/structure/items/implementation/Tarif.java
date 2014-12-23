@@ -71,8 +71,7 @@ public class Tarif {
 
 		return (tarif.getWeight() == weight && tarif.getId() == id
 				&& tarif.getPrice() == price
-				&& getInsertDate().equals(insertDate) && getUpdateDate()
-				.equals(updateDate));
+				&& getInsertDate().equals(insertDate));
 	}
 
 	

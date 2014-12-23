@@ -1,2 +1,3 @@
 tools\xml\XMLReaderAndWriterImplTest.class
+dao\entities\FerrymanDaoImplTest.class
 dao\entities\UserDaoImplTest.class

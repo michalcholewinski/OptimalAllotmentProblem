@@ -17,7 +17,7 @@ public interface FerrymanDao {
 			CannotAddElementException, NotCompleteDataException;
 
 	public Ferryman updateFerryman(Ferryman ferryman)
-			throws NonUniqueDataException;
+			throws NonUniqueDataException, ElementNotExistInDatabaseException;
 
 	public void deleteFerryman(Ferryman ferryman)
 			throws ElementNotExistInDatabaseException;

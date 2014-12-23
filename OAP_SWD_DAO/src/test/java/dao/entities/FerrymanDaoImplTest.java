@@ -6,6 +6,7 @@ import java.io.File;
 
 import oap.utils.exceptions.CannotAddElementException;
 import oap.utils.exceptions.ElementExistInDatabaseException;
+import oap.utils.exceptions.ElementNotExistInDatabaseException;
 import oap.utils.exceptions.MyException;
 import oap.utils.exceptions.NonUniqueDataException;
 import oap.utils.exceptions.NotCompleteDataException;
@@ -32,87 +33,140 @@ public class FerrymanDaoImplTest {
 	}
 
 	@After
-	public void reset(){
+	public void reset() {
 		DbDao.resetInstance();
 	}
-	
-	
+
 	@Test
 	public void shouldCreateFerryman() {
-		Ferryman ferryman= new Ferryman();
+		Ferryman ferryman = new Ferryman();
 		ferryman.setName("AAA");
-		
-		Ferryman ferrymanFromDb=null;
+
+		Ferryman ferrymanFromDb = null;
 		try {
-			ferrymanFromDb=ferrymanDao.createFerryman(ferryman);
+			ferrymanFromDb = ferrymanDao.createFerryman(ferryman);
 		} catch (MyException e) {
 			fail("Not performed");
 		}
-		
-		Assert.assertEquals(ferryman,ferrymanFromDb);
-		
-		
+
+		Assert.assertEquals(ferryman, ferrymanFromDb);
+
 	}
-	
-	@Test(expected=NonUniqueDataException.class)
-	public void shouldCreateFerrymanThrowNonUniqueDataException() throws NonUniqueDataException, ElementExistInDatabaseException,
-	CannotAddElementException, NotCompleteDataException{
-		
-		Ferryman ferryman= new Ferryman();
+
+	@Test(expected = NonUniqueDataException.class)
+	public void shouldCreateFerrymanThrowNonUniqueDataException()
+			throws NonUniqueDataException, ElementExistInDatabaseException,
+			CannotAddElementException, NotCompleteDataException {
+
+		Ferryman ferryman = new Ferryman();
 		ferryman.setName("AAA");
-		
-		Ferryman ferrymanFromDb=null;
-			ferrymanFromDb=ferrymanDao.createFerryman(ferryman);
-		Ferryman ferryman2= new Ferryman();
-			ferryman2.setName("AAA");
-			ferrymanFromDb=ferrymanDao.createFerryman(ferryman2);
-			
-		
-		
-		
+
+		Ferryman ferrymanFromDb = null;
+		ferrymanFromDb = ferrymanDao.createFerryman(ferryman);
+		Ferryman ferryman2 = new Ferryman();
+		ferryman2.setName("AAA");
+		ferrymanFromDb = ferrymanDao.createFerryman(ferryman2);
+
 	}
-	
-	@Test(expected=ElementExistInDatabaseException.class)
-	public void shouldCreateFerrymanThrowElementExistInDatabaseException() throws NonUniqueDataException, ElementExistInDatabaseException,
-	CannotAddElementException, NotCompleteDataException{
-		
-		Ferryman ferryman= new Ferryman();
+
+	@Test(expected = ElementExistInDatabaseException.class)
+	public void shouldCreateFerrymanThrowElementExistInDatabaseException()
+			throws NonUniqueDataException, ElementExistInDatabaseException,
+			CannotAddElementException, NotCompleteDataException {
+
+		Ferryman ferryman = new Ferryman();
 		ferryman.setName("AAA");
-		
-		Ferryman ferrymanFromDb=null;
-			ferrymanFromDb=ferrymanDao.createFerryman(ferryman);
-		
-			ferrymanFromDb=ferrymanDao.createFerryman(ferryman);
-			
-		
-		
-		
+
+		Ferryman ferrymanFromDb = null;
+		ferrymanFromDb = ferrymanDao.createFerryman(ferryman);
+
+		ferrymanFromDb = ferrymanDao.createFerryman(ferryman);
+
 	}
-	
-	@Test(expected=NotCompleteDataException.class)
-	public void shouldCreateFerrymanThrowNotCompleteDataException() throws NonUniqueDataException, ElementExistInDatabaseException,
-	CannotAddElementException, NotCompleteDataException{
-		
-		Ferryman ferryman= new Ferryman();
-		
-		Ferryman ferrymanFromDb=null;
-			ferrymanFromDb=ferrymanDao.createFerryman(ferryman);
-		
+
+	@Test(expected = NotCompleteDataException.class)
+	public void shouldCreateFerrymanThrowNotCompleteDataException()
+			throws NonUniqueDataException, ElementExistInDatabaseException,
+			CannotAddElementException, NotCompleteDataException {
+
+		Ferryman ferryman = new Ferryman();
+
+		Ferryman ferrymanFromDb = null;
+		ferrymanFromDb = ferrymanDao.createFerryman(ferryman);
+
 	}
 
 	@Test
-	public void shouldUpdateFerryman() {
-		fail("Not yet implemented");
+	public void shouldUpdateFerryman() throws NonUniqueDataException,
+			ElementNotExistInDatabaseException {
+
+		Ferryman ferryman = new Ferryman();
+		ferryman.setName("AAA");
+
+		Ferryman ferrymanFromDb = null;
+		try {
+			ferrymanFromDb = ferrymanDao.createFerryman(ferryman);
+		} catch (MyException e) {
+			fail("Not performed");
+		}
+
+		ferryman.setName("BBB");
+		ferrymanFromDb = ferrymanDao.updateFerryman(ferryman);
+
+		Assert.assertEquals(ferryman, ferrymanFromDb);
+	}
+
+	@Test(expected = NonUniqueDataException.class)
+	public void shouldUpdateFerrymanThrowNonUniqueDataException()
+			throws NonUniqueDataException, ElementNotExistInDatabaseException {
+		Ferryman ferryman = new Ferryman();
+		ferryman.setName("AAA");
+
+		Ferryman ferrymanFromDb = null;
+		try {
+			ferrymanFromDb = ferrymanDao.createFerryman(ferryman);
+		} catch (MyException e) {
+			fail("Not performed");
+		}
+		Ferryman ferryman1 = new Ferryman();
+		ferryman1.setName("BBB");
+
+		try {
+			ferrymanFromDb = ferrymanDao.createFerryman(ferryman);
+		} catch (MyException e) {
+			fail("Not performed");
+		}
+
+		ferryman.setName("BBB");
+		ferrymanFromDb = ferrymanDao.updateFerryman(ferryman);
+
 	}
 
 	@Test
-	public void shouldDeleteFerryman() {
-		fail("Not yet implemented");
+	public void shouldDeleteFerryman()
+			throws ElementNotExistInDatabaseException {
+		Ferryman ferryman = new Ferryman();
+		ferryman.setName("AAA");
+
+		Ferryman ferrymanFromDb = null;
+		try {
+			ferrymanFromDb = ferrymanDao.createFerryman(ferryman);
+		} catch (MyException e) {
+			fail("Not performed");
+		}
+		Assert.assertEquals(ferryman, ferrymanFromDb);
+		ferrymanDao.deleteFerryman(ferryman);
+
+		Assert.assertEquals(0, ferrymanDao.findAllFerrymans().size());
+
 	}
 
-	@Test
-	public void shouldFindFerrymanByName() {
-		fail("Not yet implemented");
+	@Test(expected = ElementNotExistInDatabaseException.class)
+	public void shouldDeleteFerrymanThrowElementNotExistInDatabaseException()
+			throws ElementNotExistInDatabaseException {
+		Ferryman ferryman = new Ferryman();
+		ferryman.setName("AAA");
+		ferrymanDao.deleteFerryman(ferryman);
 	}
 
 }
