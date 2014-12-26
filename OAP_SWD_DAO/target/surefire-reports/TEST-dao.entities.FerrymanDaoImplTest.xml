@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="8" failures="0" name="dao.entities.FerrymanDaoImplTest" time="8.065" errors="2" skipped="0">
+<testsuite failures="0" time="0.562" errors="0" skipped="0" tests="8" name="dao.entities.FerrymanDaoImplTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
-    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_05\jre\bin"/>
-    <property name="java.vm.version" value="25.5-b02"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.7.0_02\jre\bin"/>
+    <property name="java.vm.version" value="22.0-b10"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=";"/>
@@ -15,136 +15,57 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="Service Pack 1"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="D:\OAP\OAP_SWD"/>
-    <property name="java.runtime.version" value="1.8.0_05-b13"/>
+    <property name="user.dir" value="D:\OAP\OptimalAllotmentProblem"/>
+    <property name="java.runtime.version" value="1.7.0_02-b13"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_05\jre\lib\endorsed"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.7.0_02\jre\lib\endorsed"/>
     <property name="os.arch" value="x86"/>
-    <property name="java.io.tmpdir" value="C:\Users\Michal\AppData\Local\Temp\"/>
+    <property name="java.io.tmpdir" value="C:\Users\CH\AppData\Local\Temp\"/>
     <property name="line.separator" value="
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 7"/>
-    <property name="classworlds.conf" value="D:\MAVEN\apache-maven-3.2.3\bin\m2.conf"/>
+    <property name="classworlds.conf" value="D:\maven\bin\m2.conf"/>
     <property name="sun.jnu.encoding" value="Cp1250"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_05\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\ATI Technologies\ATI.ACE\Core-Static;D:\Program Files\Git\cmd;D:\MAVEN\apache-maven-3.2.3\bin;%JAVA_HOME%\bin; D:\MinGW\bin;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.7.0_02\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\JavaFX\javafx-sdk1.0\bin;C:\Program Files\JavaFX\javafx-sdk1.0\emulator\bin;D:\oraclexe\app\oracle\product\11.2.0\server\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;D:\Program Files\TortoiseSVN\bin; C:\Program Files\Java\jdk1.7.0_02\bin;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files\Windows Kits\8.0\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;D:\Program Files\Git\cmd;D:\maven\bin;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="java.class.version" value="52.0"/>
+    <property name="java.class.version" value="51.0"/>
     <property name="sun.management.compiler" value="HotSpot Client Compiler"/>
     <property name="os.version" value="6.1"/>
-    <property name="user.home" value="C:\Users\Michal"/>
+    <property name="user.home" value="C:\Users\CH"/>
     <property name="user.timezone" value="Europe/Belgrade"/>
     <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
-    <property name="java.specification.version" value="1.8"/>
+    <property name="java.specification.version" value="1.7"/>
     <property name="file.encoding" value="Cp1250"/>
-    <property name="user.name" value="Michal"/>
-    <property name="java.class.path" value="D:\MAVEN\apache-maven-3.2.3\boot\plexus-classworlds-2.5.1.jar"/>
-    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="user.name" value="CH"/>
+    <property name="java.class.path" value="D:\maven\boot\plexus-classworlds-2.5.2.jar"/>
+    <property name="java.vm.specification.version" value="1.7"/>
     <property name="sun.arch.data.model" value="32"/>
-    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_05\jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean install -DskipTest"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.7.0_02\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean install"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="pl"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
-    <property name="java.vm.info" value="mixed mode"/>
-    <property name="java.version" value="1.8.0_05"/>
-    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_05\jre\lib\ext;C:\Windows\Sun\Java\lib\ext"/>
-    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_05\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_05\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_05\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_05\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_05\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_05\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_05\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_05\jre\classes"/>
-    <property name="sun.stderr.encoding" value="cp852"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.version" value="1.7.0_02"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.7.0_02\jre\lib\ext;C:\Windows\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.7.0_02\jre\lib\resources.jar;C:\Program Files\Java\jdk1.7.0_02\jre\lib\rt.jar;C:\Program Files\Java\jdk1.7.0_02\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.7.0_02\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.7.0_02\jre\lib\jce.jar;C:\Program Files\Java\jdk1.7.0_02\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.7.0_02\jre\classes"/>
     <property name="java.vendor" value="Oracle Corporation"/>
-    <property name="skipTest" value="true"/>
-    <property name="maven.home" value="D:\MAVEN\apache-maven-3.2.3"/>
+    <property name="maven.home" value="D:\maven"/>
     <property name="file.separator" value="\"/>
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
-    <property name="sun.stdout.encoding" value="cp852"/>
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="dao.entities.FerrymanDaoImplTest" name="shouldDeleteFerrymanThrowElementNotExistInDatabaseException" time="7.737"/>
-  <testcase classname="dao.entities.FerrymanDaoImplTest" name="shouldCreateFerrymanThrowNotCompleteDataException" time="0.016"/>
-  <testcase classname="dao.entities.FerrymanDaoImplTest" name="shouldUpdateFerrymanThrowNonUniqueDataException" time="0.031">
-    <error message="Unexpected exception, expected&lt;oap.utils.exceptions.NonUniqueDataException&gt; but was&lt;java.lang.AssertionError&gt;" type="java.lang.Exception">java.lang.Exception: Unexpected exception, expected&lt;oap.utils.exceptions.NonUniqueDataException&gt; but was&lt;java.lang.AssertionError&gt;
-	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:28)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
-	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:483)
-	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
-	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
-	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-Caused by: java.lang.AssertionError: Not performed
-	at org.junit.Assert.fail(Assert.java:88)
-	at dao.entities.FerrymanDaoImplTest.shouldUpdateFerrymanThrowNonUniqueDataException(FerrymanDaoImplTest.java:137)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:483)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:19)
-	... 23 more
-</error>
-  </testcase>
-  <testcase classname="dao.entities.FerrymanDaoImplTest" name="shouldUpdateFerryman" time="0.031">
-    <error type="null">null
-	at dao.entities.FerrymanDaoImpl.updateFerryman(FerrymanDaoImpl.java:85)
-	at dao.entities.FerrymanDaoImplTest.shouldUpdateFerryman(FerrymanDaoImplTest.java:114)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:483)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
-	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:483)
-	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
-	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
-	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-</error>
-  </testcase>
-  <testcase classname="dao.entities.FerrymanDaoImplTest" name="shouldCreateFerryman" time="0.032"/>
-  <testcase classname="dao.entities.FerrymanDaoImplTest" name="shouldCreateFerrymanThrowElementExistInDatabaseException" time="0.078"/>
-  <testcase classname="dao.entities.FerrymanDaoImplTest" name="shouldDeleteFerryman" time="0.078"/>
-  <testcase classname="dao.entities.FerrymanDaoImplTest" name="shouldCreateFerrymanThrowNonUniqueDataException" time="0.062"/>
+  <testcase time="0.39" classname="dao.entities.FerrymanDaoImplTest" name="shouldDeleteFerrymanThrowElementNotExistInDatabaseException"/>
+  <testcase time="0.016" classname="dao.entities.FerrymanDaoImplTest" name="shouldCreateFerrymanThrowNotCompleteDataException"/>
+  <testcase time="0.015" classname="dao.entities.FerrymanDaoImplTest" name="shouldUpdateFerrymanThrowNonUniqueDataException"/>
+  <testcase time="0.016" classname="dao.entities.FerrymanDaoImplTest" name="shouldUpdateFerryman"/>
+  <testcase time="0.016" classname="dao.entities.FerrymanDaoImplTest" name="shouldCreateFerryman"/>
+  <testcase time="0.031" classname="dao.entities.FerrymanDaoImplTest" name="shouldCreateFerrymanThrowElementExistInDatabaseException"/>
+  <testcase time="0.047" classname="dao.entities.FerrymanDaoImplTest" name="shouldDeleteFerryman"/>
+  <testcase time="0.031" classname="dao.entities.FerrymanDaoImplTest" name="shouldCreateFerrymanThrowNonUniqueDataException"/>
 </testsuite>
