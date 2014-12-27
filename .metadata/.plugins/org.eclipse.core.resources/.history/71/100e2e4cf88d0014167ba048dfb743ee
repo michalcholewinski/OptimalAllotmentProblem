@@ -1,0 +1,10 @@
+package application.beans;
+
+import java.util.List;
+
+import facade.interfaces.dts.FerrymanDts;
+
+public class FerrymanDetailsModelBean {
+	private FerrymanDts ferryman;
+	private List<TarifDts> priceList;
+}

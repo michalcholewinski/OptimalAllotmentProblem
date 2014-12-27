@@ -1,0 +1,7 @@
+package facade.implementation.dts;
+
+import facade.interfaces.dts.TarifDts;
+
+public class TarifDtsImpl implements TarifDts{
+
+}

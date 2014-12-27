@@ -1,0 +1,8 @@
+package facade.interfaces.dts;
+
+public interface TarifDts {
+	private long id;
+	private int weight;
+	private float price; 
+
+}

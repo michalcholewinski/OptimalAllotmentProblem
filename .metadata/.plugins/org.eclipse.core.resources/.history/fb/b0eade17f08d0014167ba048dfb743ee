@@ -1,0 +1,46 @@
+package application.panels;
+
+import java.awt.event.ActionEvent;
+
+import javax.swing.JPanel;
+
+import state.pattern.impl.context.Context;
+import application.beans.FerrymanDetailsModelBean;
+import application.panels.abstraction.AbstractPanel;
+
+public class FerrymansDetailsPanel extends AbstractPanel<FerrymanDetailsModelBean> {
+
+	private JPanel mainContent;
+	private JPanel ferrymanDetails;
+	private JPanel priceList;
+	
+	public FerrymansDetailsPanel() {
+		super();
+		
+	}
+
+	@Override
+	public void proceed(Context context) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void back(Context context) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void retrieveData() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

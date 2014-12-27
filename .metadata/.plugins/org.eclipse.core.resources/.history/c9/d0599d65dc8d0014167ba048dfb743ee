@@ -1,0 +1,5 @@
+package facade.implementation.dts;
+
+public class UserDtsImpl implements UserDts {
+
+}

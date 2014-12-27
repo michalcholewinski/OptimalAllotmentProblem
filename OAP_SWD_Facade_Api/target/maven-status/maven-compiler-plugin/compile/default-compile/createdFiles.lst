@@ -1,2 +1,3 @@
-facade\interfaces\facades\FerrymanFacade.class
 facade\interfaces\dts\FerrymanDts.class
+facade\interfaces\dts\UserDts.class
+facade\interfaces\facades\FerrymanFacade.class

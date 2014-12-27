@@ -1,0 +1,5 @@
+package facade.interfaces.dts;
+
+public class TarifDts {
+
+}

@@ -1,10 +1,13 @@
 package application.panels;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -16,7 +19,7 @@ import main.ApplicationClient;
 import state.pattern.impl.context.Context;
 import application.beans.UsersManagementModelBean;
 import application.panels.abstraction.AbstractPanel;
-import facade.interfaces.dts.FerrymanDts;
+import facade.implementation.dts.UserDtsImpl;
 import facade.interfaces.dts.UserDts;
 
 public class UsersManagementPanel extends AbstractPanel<UsersManagementModelBean>{
@@ -24,6 +27,7 @@ public class UsersManagementPanel extends AbstractPanel<UsersManagementModelBean
 	private JPanel contentPanel;
 	private JScrollPane usersList;
 	private JPanel usersListPanel;
+	private JButton newUser;
 	
 	
 	public UsersManagementPanel() {
@@ -31,6 +35,12 @@ public class UsersManagementPanel extends AbstractPanel<UsersManagementModelBean
 		retrieveData();
 		buildContentPanel();
 		addBackButton();
+		addNewUserButton();
+	}
+
+	private void addNewUserButton() {
+		newUser=new JButton("Dodaj u¿ytkownika");
+		footer.add(newUser,BorderLayout.CENTER);
 	}
 
 	private void buildContentPanel() {
@@ -61,15 +71,18 @@ public class UsersManagementPanel extends AbstractPanel<UsersManagementModelBean
 		JButton delete = new JButton("Usuñ");
 		
 		Color bgColor;
-		JLabel label=new JLabel();
-		label.setText("Imie: "+user.getName()+" Maksymalna waga: "+user.getSurname());
+		JLabel labelLine1=new JLabel();
+		labelLine1.setText("Imie: "+user.getName()+" Nazwisko: "+user.getSurname());
+		JLabel labelLine2 = new JLabel();
+		labelLine2.setText("Login: "+user.getLogin()+" Role: "+user.getRole());
 		bgColor= isOdd ? Color.yellow : Color.gray;
 		JPanel row = new JPanel();
 		row.setBorder(BorderFactory.createLineBorder(Color.red));
 		row.setBackground(bgColor);
-		row.setLayout(new FlowLayout());
-		row.add(label);
+		row.setLayout(new GridLayout(2, 2));
+		row.add(labelLine1);
 		row.add(details);
+		row.add(labelLine2);
 		row.add(delete);
 		usersListPanel.add(row);
 	}
@@ -89,8 +102,22 @@ public class UsersManagementPanel extends AbstractPanel<UsersManagementModelBean
 
 	@Override
 	protected void retrieveData() {
-		// TODO Auto-generated method stub
-		
+		modelBean = new UsersManagementModelBean();
+		modelBean.setUsers(createTestUsers());
+	}
+
+	private List<UserDts> createTestUsers() {
+		List<UserDts> u = new ArrayList<UserDts>();	
+		for(int i=0; i<20; i++){
+			UserDts uu=new UserDtsImpl();
+			uu.setName("User nr "+i);
+			uu.setSurname("Surname "+i);
+			uu.setPassword("Pass");
+			uu.setRole("ADMIN");
+			uu.setLogin("Login"+i);
+			u.add(uu);
+		}
+		return u;
 	}
 
 	@Override

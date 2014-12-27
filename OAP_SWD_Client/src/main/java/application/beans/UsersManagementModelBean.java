@@ -16,4 +16,8 @@ public class UsersManagementModelBean {
 		return users;
 	}
 
+	public void setUsers(List<UserDts> users) {
+		this.users=users;
+	}
+
 }

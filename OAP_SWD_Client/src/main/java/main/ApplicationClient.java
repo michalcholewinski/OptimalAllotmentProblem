@@ -3,9 +3,8 @@ package main;
 import javax.swing.JFrame;
 
 import state.pattern.impl.context.Context;
-import application.beans.FerrymansManagementModelBean;
+import application.panels.FerrymansDetailsPanel;
 import application.panels.FerrymansManagementPanel;
-import application.panels.MainPanel;
 import application.panels.abstraction.AbstractPanel;
 
 public class ApplicationClient implements Runnable {
@@ -19,7 +18,9 @@ public class ApplicationClient implements Runnable {
 
 		Context context = new Context();
 //		context.setState(new MainPanel());
-		context.setState(new FerrymansManagementPanel());
+//		context.setState(new FerrymansManagementPanel());
+//		context.setState(new UsersManagementPanel());
+		context.setState(new FerrymansDetailsPanel());
 		frame.add(((AbstractPanel)context.getState()).getPanel());
 
 		frame.setVisible(true);

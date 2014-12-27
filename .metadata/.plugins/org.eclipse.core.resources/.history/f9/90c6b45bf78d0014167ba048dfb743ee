@@ -1,0 +1,6 @@
+package application.beans;
+
+public class FerrymanDetailsModelBean {
+	private FerrymanDts ferryman;
+
+}

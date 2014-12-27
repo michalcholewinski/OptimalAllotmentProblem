@@ -1,0 +1,60 @@
+package application.panels;
+
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+
+import javax.swing.JPanel;
+
+import state.pattern.impl.context.Context;
+import application.beans.FerrymanDetailsModelBean;
+import application.panels.abstraction.AbstractPanel;
+
+public class FerrymansDetailsPanel extends AbstractPanel<FerrymanDetailsModelBean> {
+
+	private static final int ROWS = 1;
+	private static final int COLS = 2;
+	private JPanel mainContent;
+	private JPanel ferrymanDetails;
+	private JPanel priceList;
+	
+	public FerrymansDetailsPanel() {
+		super();
+		buildMainPanel();
+		
+	}
+
+	private void buildMainPanel() {
+		mainContent=new JPanel();
+		mainContent.setBackground(BACKGROUND);
+		mainContent.setLayout(new GridLayout(COLS,ROWS));
+		ferrymanDetails=new JPanel();
+		ferrymanDetails.setBackground(BACKGROUND);
+		priceList = new JPanel();
+		priceList.setBackground(BACKGROUND);
+	}
+
+	@Override
+	public void proceed(Context context) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void back(Context context) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void retrieveData() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

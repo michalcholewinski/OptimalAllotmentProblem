@@ -27,17 +27,23 @@ public class FerrymansManagementPanel extends AbstractPanel<FerrymansManagementM
 	private JPanel contentPanel;
 	private JScrollPane ferrymansList;
 	private JPanel ferrymansListPanel;
-	private JButton back;
+	private JButton newFerryman;
 	
 	public FerrymansManagementPanel() {
 		super();
 		retrieveData();
 		buildContentPanel();
 		addBackButton();
+		addNewFerrymanButton();
 		
 	}
-
 	
+	private void addNewFerrymanButton() {
+		newFerryman=new JButton("Dodaj przewoŸnika");
+		footer.add(newFerryman, BorderLayout.CENTER);
+	}
+
+
 	private void buildContentPanel() {
 		contentPanel=new JPanel();
 		contentPanel.setLayout(new FlowLayout());

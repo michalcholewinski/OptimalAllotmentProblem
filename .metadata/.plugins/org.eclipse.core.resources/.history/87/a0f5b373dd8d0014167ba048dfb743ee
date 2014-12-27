@@ -1,0 +1,19 @@
+package facade.implementation.dts;
+
+import facade.interfaces.dts.UserDts;
+
+public class UserDtsImpl implements UserDts {
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getSurname() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
