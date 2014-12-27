@@ -20,4 +20,6 @@ public class FerrymanDetailsModelBean {
 	public void setPriceList(List<TarifDts> priceList) {
 		this.priceList = priceList;
 	}
+	
+	
 }
