@@ -1,5 +1,0 @@
-package oap.utils.xml.enums;
-
-public enum DatabaseName {
-
-}

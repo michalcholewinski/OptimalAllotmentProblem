@@ -1,0 +1,5 @@
+package application.mode;
+
+public enum Mode {
+
+}

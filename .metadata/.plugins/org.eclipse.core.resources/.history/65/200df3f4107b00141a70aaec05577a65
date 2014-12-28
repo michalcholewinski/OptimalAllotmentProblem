@@ -1,9 +1,0 @@
-package oap.utils.xml.enums;
-
-public enum Role {
-	
-	private Role(Strin roleName){
-		this.roleName=roleName;
-	}
-
-}

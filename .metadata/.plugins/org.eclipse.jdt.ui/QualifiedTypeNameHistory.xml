@@ -20,7 +20,6 @@
 <fullyQualifiedTypeName name="javax.xml.bind.ValidationException"/>
 <fullyQualifiedTypeName name="db.dao.DbDao"/>
 <fullyQualifiedTypeName name="db.structure.items.implementation.User"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="sun.print.resources.serviceui"/>
 <fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlAttribute"/>
@@ -39,4 +38,18 @@
 <fullyQualifiedTypeName name="oap.utils.exceptions.ElementNotExistInDatabaseException"/>
 <fullyQualifiedTypeName name="oap.utils.exceptions.NonUniqueDataException"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="application.panels.UsersManagementPanel"/>
+<fullyQualifiedTypeName name="application.beans.UsersManagementModelBean"/>
+<fullyQualifiedTypeName name="java.awt.GridLayout"/>
+<fullyQualifiedTypeName name="java.awt.Dimension"/>
+<fullyQualifiedTypeName name="com.sun.glass.ui.Application"/>
+<fullyQualifiedTypeName name="main.ApplicationClient"/>
+<fullyQualifiedTypeName name="application.panels.FerrymansDetailsPanel"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.awt.FlowLayout"/>
+<fullyQualifiedTypeName name="javax.swing.JTextField"/>
+<fullyQualifiedTypeName name="javax.swing.JLabel"/>
+<fullyQualifiedTypeName name="javax.swing.BorderFactory"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
+<fullyQualifiedTypeName name="java.awt.BorderLayout"/>
 </qualifiedTypeNameHistroy>

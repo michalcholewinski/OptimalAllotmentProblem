@@ -2,9 +2,10 @@
 <typeInfoHistroy>
 <typeInfo handle="=OAP_SWD_DAO_Api/src\/main\/java&lt;tools.md5{MD5Decoder.java[MD5Decoder" modifiers="513" timestamp="1416413171576"/>
 <typeInfo handle="=OAP_SWD_DAO_Api/src\/main\/java&lt;db.dao{DbDaoInterface.java[DbDaoInterface" modifiers="513" timestamp="1417553910512"/>
-<typeInfo handle="=OAP_SWD_DAO_Api/src\/main\/java&lt;dao.entities{FerrymanDao.java[FerrymanDao" modifiers="513" timestamp="1417728527687"/>
 <typeInfo handle="=OAP_SWD_DAO_Api/src\/main\/java&lt;dao.entities{UserDao.java[UserDao" modifiers="513" timestamp="1417728172225"/>
 <typeInfo handle="=OAP_SWD_Utils/C:\/Program Files\/Java\/jre8\/lib\/rt.jar&lt;java.lang(Exception.class[Exception" modifiers="33" timestamp="1410286842054"/>
-<typeInfo handle="=OAP_SWD_DB/src\/main\/java&lt;db.structure.items.implementation{User.java[User" modifiers="1" timestamp="1417729038438"/>
+<typeInfo handle="=OAP_SWD_DB/src\/main\/java&lt;db.structure.items.implementation{User.java[User" modifiers="1" timestamp="1419691770911"/>
+<typeInfo handle="=OAP_SWD_DAO_Api/src\/main\/java&lt;dao.entities{FerrymanDao.java[FerrymanDao" modifiers="513" timestamp="1417728527687"/>
+<typeInfo handle="=OAP_SWD_Facade_Api/src\/main\/java&lt;facade.interfaces.dts{FerrymanDts.java[FerrymanDts" modifiers="513" timestamp="1419697030767"/>
 <typeInfo handle="=OAP_SWD_DB/src\/main\/java&lt;db.structure.items.implementation{Tarif.java[Tarif" modifiers="1" timestamp="1417729080425"/>
 </typeInfoHistroy>

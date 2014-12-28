@@ -1,5 +1,0 @@
-package oap.utils.exceptions;
-
-public class CannotAddElementException extends Exception {
-
-}

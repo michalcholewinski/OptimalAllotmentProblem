@@ -1,0 +1,72 @@
+package application.panels;
+
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import state.pattern.impl.context.Context;
+import application.beans.UserDetailsModelBean;
+import application.panels.abstraction.AbstractPanel;
+
+public class UserDetailsPanel extends AbstractPanel<UserDetailsModelBean> {
+	private JButton save;
+	private JPanel mainContent;
+	private JTextField name;
+	private JTextField surname;
+	private JTextField login;
+	private JTextField password;
+	
+	public UserDetailsPanel() {
+		super();
+		buildMainPanel();
+		addSaveButton();
+		addBackButton();
+	}
+
+	private void buildMainPanel() {
+		mainContent=new JPanel();
+		mainContent.setBackground(BACKGROUND);
+		mainContent.setLayout(new BorderLayout());
+		mainContent.add(addFieldsPanel(), BorderLayout.CENTER);
+		content.add(mainContent);
+	}
+
+	private JPanel addFieldsPanel() {
+		JPanel panel=new JPanel();
+		return panel;
+	}
+
+	private void addSaveButton() {
+		save=new JButton("Zapisz");
+		footer.add(save, BorderLayout.CENTER);
+	}
+
+	@Override
+	public void proceed(Context context) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void back(Context context) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void retrieveData() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

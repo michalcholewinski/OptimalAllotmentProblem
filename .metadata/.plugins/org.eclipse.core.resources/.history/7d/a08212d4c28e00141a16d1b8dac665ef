@@ -1,0 +1,5 @@
+package facade.interfaces.facades;
+
+public interface UserFacade {
+
+}

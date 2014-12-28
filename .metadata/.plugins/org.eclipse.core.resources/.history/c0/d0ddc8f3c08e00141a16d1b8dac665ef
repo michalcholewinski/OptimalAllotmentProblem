@@ -1,0 +1,6 @@
+package facade.interfaces.dts;
+
+public interface AllotmentCalculationDts {
+	public List<ChoosenFarrymanDts> getFerrymans();
+	
+}
