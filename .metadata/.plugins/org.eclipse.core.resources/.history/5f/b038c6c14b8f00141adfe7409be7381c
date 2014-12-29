@@ -1,0 +1,43 @@
+package main;
+
+import javax.swing.JFrame;
+
+import state.pattern.impl.context.Context;
+import application.panels.FerrymansDetailsPanel;
+import application.panels.FerrymansManagementPanel;
+import application.panels.OptimalAllotmentCalculationPanel;
+import application.panels.UserDetailsPanel;
+import application.panels.abstraction.AbstractPanel;
+
+public class ApplicationClient implements Runnable {
+	public static final int WINDOW_SIZE_X = 640;
+	public static final int WINDOW_SIZE_Y = 480;
+
+	private void init() {
+		JFrame frame = new JFrame("Optimal Allotment Problem");
+		frame.setSize(WINDOW_SIZE_X, WINDOW_SIZE_Y);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		Context context = new Context();
+		context.setState(new MainPanel());
+//		context.setState(new FerrymansManagementPanel());
+//		context.setState(new UsersManagementPanel());
+//		context.setState(new FerrymansDetailsPanel());
+//		context.setState(new UserDetailsPanel());
+//		context.setState(new OptimalAllotmentCalculationPanel());
+		frame.add(((AbstractPanel)context.getState()).getPanel());
+
+		frame.setVisible(true);
+	}
+
+	@Override
+	public void run() {
+		init();
+	}
+
+	public static void main(String[] args) {
+		Thread t = new Thread(new ApplicationClient());
+		t.run();
+	}
+
+}

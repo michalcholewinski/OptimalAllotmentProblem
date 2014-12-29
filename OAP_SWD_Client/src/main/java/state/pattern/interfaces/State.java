@@ -7,4 +7,5 @@ import state.pattern.impl.context.Context;
 public interface State extends ActionListener{
 	public void proceed(Context context);
 	public void back(Context context);
+	public void setContext(Context context);
 }

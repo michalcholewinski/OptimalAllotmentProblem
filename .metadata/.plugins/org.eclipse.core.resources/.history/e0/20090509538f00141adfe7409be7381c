@@ -1,0 +1,9 @@
+package application.enumeriations;
+
+public enum Dialogs {
+	
+	private Dialogs(String name){
+		this.name=name;
+	}
+
+}

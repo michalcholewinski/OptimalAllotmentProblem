@@ -8,4 +8,5 @@
 <typeInfo handle="=OAP_SWD_DAO_Api/src\/main\/java&lt;dao.entities{FerrymanDao.java[FerrymanDao" modifiers="513" timestamp="1417728527687"/>
 <typeInfo handle="=OAP_SWD_Facade_Api/src\/main\/java&lt;facade.interfaces.dts{FerrymanDts.java[FerrymanDts" modifiers="513" timestamp="1419697030767"/>
 <typeInfo handle="=OAP_SWD_DB/src\/main\/java&lt;db.structure.items.implementation{Tarif.java[Tarif" modifiers="1" timestamp="1417729080425"/>
+<typeInfo handle="=OAP_SWD_Client/src\/main\/java&lt;state.pattern.impl.context{Context.java[Context" modifiers="1" timestamp="1419691770768"/>
 </typeInfoHistroy>

@@ -1,0 +1,18 @@
+package application.enumeriations;
+
+public enum Dialogs {
+	MAIN_PANEL("MainPanel"),
+	
+	
+	
+	private Dialogs(String name){
+		this.name=name;
+	}
+	
+	private String name;
+	
+	public String getName() {
+		return name;
+	}
+
+}

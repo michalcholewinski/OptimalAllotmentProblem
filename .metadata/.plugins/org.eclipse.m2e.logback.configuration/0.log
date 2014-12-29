@@ -11,3 +11,4 @@
 2014-12-03 17:56:23,517 [Worker-59] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/sonatype/oss/oss-parent/7/oss-parent-7.pom
 2014-12-03 17:56:23,619 [Worker-59] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/com/google/guava/guava/18.0/guava-18.0.jar
 2014-12-03 17:56:29,051 [Worker-59] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/com/google/guava/guava/18.0/guava-18.0.jar
+2014-12-29 12:10:12,426 [main] WARN  o.e.r.i.c.rcp.TypeBindingAnalyzer - Can't handle class org.eclipse.jdt.internal.compiler.ast.IfStatement as parent of completion location.

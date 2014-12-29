@@ -1,0 +1,16 @@
+package application.enumeriations;
+
+public enum Dialogs {
+	
+	
+	
+	private Dialogs(String name){
+		this.name=name;
+	}
+	private String name;
+	
+	public String getName() {
+		return name;
+	}
+
+}

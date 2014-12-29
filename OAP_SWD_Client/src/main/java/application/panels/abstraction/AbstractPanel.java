@@ -44,6 +44,10 @@ public abstract class AbstractPanel<T> implements State {
 	}
 
 	protected abstract void retrieveData();
+	
+	public void setContext(Context context){
+		this.context=context;
+	}
 
 	private void createHeader() {
 		header = new JPanel();
