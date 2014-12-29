@@ -1,1 +1,3 @@
+facade\implementation\dts\UserDtsImpl.class
 facade\implementation\dts\FerrymanDtsImpl.class
+facade\implementation\dts\TarifDtsImpl.class

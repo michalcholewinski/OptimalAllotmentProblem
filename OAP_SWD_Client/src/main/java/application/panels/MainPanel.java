@@ -32,6 +32,7 @@ public class MainPanel extends AbstractPanel<MainPanelModelBean> {
 	
 	public MainPanel() {
 		super();
+		dialog=Dialogs.MAIN_PANEL;
 		buildPanel();
 	}
 
@@ -92,7 +93,7 @@ public class MainPanel extends AbstractPanel<MainPanelModelBean> {
 
 
 	@Override
-	protected void retrieveData() {
+	public void retrieveData() {
 		//nothing to do
 	}
 
@@ -100,17 +101,15 @@ public class MainPanel extends AbstractPanel<MainPanelModelBean> {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
-		Container parent = getPanel().getParent();
+		
 		
 		if(source.equals(ferrymansManagement)){
-			ApplicationClient.cards.show(parent, Dialogs.FERRYMANS_MANAGEMENT.getName());
+			switchPanel(Dialogs.FERRYMANS_MANAGEMENT);
 		}else if(e.getSource().equals(usersManagement)){
-			context.setState(new UsersManagementPanel());
+			switchPanel(Dialogs.USERS_MANAGEMENT);
 		}else if(e.getSource().equals(optimalAllotmentCalculation)){
-			context.setState(new UsersManagementPanel());
+			switchPanel(Dialogs.OPTIMAL_ALLOTMENT_CALCULATION);;
 		}
-//		context.frameRefresh(context);
-		
 	}
 
 }

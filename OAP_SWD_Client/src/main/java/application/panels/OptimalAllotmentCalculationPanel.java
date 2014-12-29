@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 
 import state.pattern.impl.context.Context;
 import application.beans.OptimalAllotmentCalculationModelBean;
+import application.enumeriations.Dialogs;
 import application.panels.abstraction.AbstractPanel;
 
 public class OptimalAllotmentCalculationPanel extends AbstractPanel<OptimalAllotmentCalculationModelBean> {
@@ -14,6 +15,7 @@ public class OptimalAllotmentCalculationPanel extends AbstractPanel<OptimalAllot
 
 	public OptimalAllotmentCalculationPanel() {
 		super();
+		dialog=Dialogs.OPTIMAL_ALLOTMENT_CALCULATION;
 		buildMainPanel();
 		addBackButton();
 	}
@@ -37,15 +39,14 @@ public class OptimalAllotmentCalculationPanel extends AbstractPanel<OptimalAllot
 	}
 
 	@Override
-	protected void retrieveData() {
+	public void retrieveData() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
+		super.actionPerformed(e);		
 	}
 
 }

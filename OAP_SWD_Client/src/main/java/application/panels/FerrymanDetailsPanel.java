@@ -18,6 +18,7 @@ import javax.swing.JTextField;
 import main.ApplicationClient;
 import state.pattern.impl.context.Context;
 import application.beans.FerrymanDetailsModelBean;
+import application.enumeriations.Dialogs;
 import application.panels.abstraction.AbstractPanel;
 import facade.implementation.dts.FerrymanDtsImpl;
 import facade.implementation.dts.TarifDtsImpl;
@@ -45,6 +46,7 @@ public class FerrymanDetailsPanel extends AbstractPanel<FerrymanDetailsModelBean
 	
 	public FerrymanDetailsPanel() {
 		super();
+		dialog=Dialogs.FERRYMAN_DETAILS;
 		retrieveData();
 		buildMainPanel();
 		addTarifButton();
@@ -175,7 +177,7 @@ public class FerrymanDetailsPanel extends AbstractPanel<FerrymanDetailsModelBean
 	}
 
 	@Override
-	protected void retrieveData() {
+	public void retrieveData() {
 		modelBean = new FerrymanDetailsModelBean();
 		createTestData(modelBean);
 		
@@ -197,7 +199,8 @@ public class FerrymanDetailsPanel extends AbstractPanel<FerrymanDetailsModelBean
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		Object source = e.getSource();
+		
 		
 	}
 

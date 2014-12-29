@@ -2,19 +2,27 @@ package application.panels.abstraction;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import main.ApplicationClient;
+import state.interfaces.State;
 import state.pattern.impl.context.Context;
-import state.pattern.interfaces.State;
+import application.enumeriations.Dialogs;
+import application.panels.FerrymanDetailsPanel;
+import application.panels.UserDetailsPanel;
 
 public abstract class AbstractPanel<T> implements State {
 	private static final int _FONT_SIZE = 16;
-	protected Context context;
+//	protected Context context;
+	
+	protected Dialogs dialog;
 	private final JPanel panel;
 	protected final JPanel content;
 	protected JPanel footer;
@@ -43,11 +51,11 @@ public abstract class AbstractPanel<T> implements State {
 		panel.add(footer, BorderLayout.SOUTH);
 	}
 
-	protected abstract void retrieveData();
-	
-	public void setContext(Context context){
-		this.context=context;
-	}
+	public abstract void retrieveData();
+
+//	public void setContext(Context context) {
+//		this.context = context;
+//	}
 
 	private void createHeader() {
 		header = new JPanel();
@@ -64,6 +72,7 @@ public abstract class AbstractPanel<T> implements State {
 
 	protected void addBackButton() {
 		back = new JButton("WSTECZ");
+		back.addActionListener(this);
 		footer.add(back, BorderLayout.WEST);
 
 	}
@@ -79,6 +88,32 @@ public abstract class AbstractPanel<T> implements State {
 
 	public JPanel getPanel() {
 		return panel;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		Object source = e.getSource();
+		if (source.equals(back)) {
+			if (this instanceof UserDetailsPanel) {
+				switchPanel(Dialogs.USERS_MANAGEMENT);
+			} else if (this instanceof FerrymanDetailsPanel) {
+				switchPanel(Dialogs.FERRYMANS_MANAGEMENT);
+			} else {
+				switchPanel(Dialogs.MAIN_PANEL);
+			}
+		}
+
+	}
+
+	protected void switchPanel(Dialogs dialog) {
+		Container parent = panel.getParent();
+		ApplicationClient.cards.show(parent, dialog.getName());
+
+	}
+	
+	@Override
+	public Dialogs getDialogsName() {
+		return dialog;
 	}
 
 }

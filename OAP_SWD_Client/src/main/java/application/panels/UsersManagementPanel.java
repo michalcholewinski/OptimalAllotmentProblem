@@ -18,6 +18,7 @@ import javax.swing.JScrollPane;
 import main.ApplicationClient;
 import state.pattern.impl.context.Context;
 import application.beans.UsersManagementModelBean;
+import application.enumeriations.Dialogs;
 import application.panels.abstraction.AbstractPanel;
 import facade.implementation.dts.UserDtsImpl;
 import facade.interfaces.dts.UserDts;
@@ -32,6 +33,7 @@ public class UsersManagementPanel extends AbstractPanel<UsersManagementModelBean
 	
 	public UsersManagementPanel() {
 		super();
+		dialog=Dialogs.USERS_MANAGEMENT;
 		retrieveData();
 		buildContentPanel();
 		addBackButton();
@@ -101,7 +103,7 @@ public class UsersManagementPanel extends AbstractPanel<UsersManagementModelBean
 	}
 
 	@Override
-	protected void retrieveData() {
+	public void retrieveData() {
 		modelBean = new UsersManagementModelBean();
 		modelBean.setUsers(createTestUsers());
 	}
@@ -122,8 +124,7 @@ public class UsersManagementPanel extends AbstractPanel<UsersManagementModelBean
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
+		super.actionPerformed(e);
 	}
 
 }

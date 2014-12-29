@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 import main.ApplicationClient;
 import state.pattern.impl.context.Context;
 import application.beans.UserDetailsModelBean;
+import application.enumeriations.Dialogs;
 import application.panels.abstraction.AbstractPanel;
 
 public class UserDetailsPanel extends AbstractPanel<UserDetailsModelBean> {
@@ -26,6 +27,7 @@ public class UserDetailsPanel extends AbstractPanel<UserDetailsModelBean> {
 	
 	public UserDetailsPanel() {
 		super();
+		dialog=Dialogs.USER_DETAILS;
 		buildMainPanel();
 		addSaveButton();
 		addBackButton();
@@ -88,7 +90,7 @@ public class UserDetailsPanel extends AbstractPanel<UserDetailsModelBean> {
 	}
 
 	@Override
-	protected void retrieveData() {
+	public void retrieveData() {
 		// TODO Auto-generated method stub
 		
 	}

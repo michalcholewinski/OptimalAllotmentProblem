@@ -1,3 +1,7 @@
-facade\interfaces\dts\FerrymanDts.class
+facade\interfaces\dts\TarifDts.class
 facade\interfaces\dts\UserDts.class
+facade\interfaces\facades\UserFacade.class
+facade\interfaces\dts\AllotmentCalculationDts.class
 facade\interfaces\facades\FerrymanFacade.class
+facade\interfaces\dts\ChoosenFarrymanDts.class
+facade\interfaces\dts\FerrymanDts.class

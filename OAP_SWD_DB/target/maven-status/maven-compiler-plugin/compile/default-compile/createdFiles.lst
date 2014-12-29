@@ -1,6 +1,6 @@
 db\structure\items\implementation\Tarif.class
-db\structure\items\implementation\Ferryman.class
-db\structure\items\implementation\Root.class
 db\structure\items\implementation\Sequence.class
-db\structure\items\implementation\User.class
 db\structure\items\implementation\SystemXML.class
+db\structure\items\implementation\User.class
+db\structure\items\implementation\Root.class
+db\structure\items\implementation\Ferryman.class

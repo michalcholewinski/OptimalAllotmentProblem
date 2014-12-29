@@ -1,5 +1,5 @@
-db\dao\DbDaoInterface.class
 tools\xml\XMLReaderAndWriter.class
-dao\entities\UserDao.class
-dao\entities\FerrymanDao.class
 tools\md5\MD5Decoder.class
+dao\entities\UserDao.class
+db\dao\DbDaoInterface.class
+dao\entities\FerrymanDao.class
