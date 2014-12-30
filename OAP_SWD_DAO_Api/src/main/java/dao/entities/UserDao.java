@@ -29,6 +29,7 @@ public interface UserDao {
 	public List<User> findUserByNameAndSurname(String name, String surname);
 
 	public User findUserByLogin(String login);
+	public List<User> getAllUsers();
 
 	/**
 	 * 

@@ -181,4 +181,10 @@ public class UserDaoImpl implements UserDao {
 		return null;
 	}
 
+	@Override
+	public List<User> getAllUsers() {
+		SystemXML systemXML = dbDao.getSystemXML();
+		return systemXML.getRoot().getUsers();
+	}
+
 }
