@@ -5,6 +5,7 @@ import java.util.List;
 import oap.utils.exceptions.CannotAddElementException;
 import oap.utils.exceptions.ElementExistInDatabaseException;
 import oap.utils.exceptions.ElementNotExistInDatabaseException;
+import oap.utils.exceptions.MyException;
 import oap.utils.exceptions.NonUniqueDataException;
 import oap.utils.exceptions.NotCompleteDataException;
 import db.structure.items.implementation.Ferryman;
@@ -30,4 +31,6 @@ public interface FerrymanDao {
 	public Ferryman findFerrymanByName(String name);
 
 	public List<Ferryman> findAllFerrymans();
+
+	public void deleteTarif(long id) throws MyException;
 }

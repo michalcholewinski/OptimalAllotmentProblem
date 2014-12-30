@@ -14,5 +14,5 @@ public interface FerrymanFacade {
 	public List<TarifDts> getPriceListByFerrymanId(long id) throws MyException;
 	public void updatePriceListToFerrymanWithGivenId(long id,List<TarifDts> priceList) throws MyException;
 	public List<TarifDts> addNewTarifToFerrymanWithGivenId(long id, TarifDts tarif) throws MyException;
-	public void deletePriceListWithGivenId(long id) throws MyException;
+	public void deleteTarifWithGivenId(long id) throws MyException;
 }

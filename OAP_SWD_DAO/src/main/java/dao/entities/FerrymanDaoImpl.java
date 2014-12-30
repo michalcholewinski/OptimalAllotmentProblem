@@ -7,6 +7,7 @@ import java.util.List;
 import oap.utils.exceptions.CannotAddElementException;
 import oap.utils.exceptions.ElementExistInDatabaseException;
 import oap.utils.exceptions.ElementNotExistInDatabaseException;
+import oap.utils.exceptions.MyException;
 import oap.utils.exceptions.NonUniqueDataException;
 import oap.utils.exceptions.NotCompleteDataException;
 import oap.utils.xml.enums.DatabaseName;
@@ -18,6 +19,7 @@ import db.dao.DbDaoInterface;
 import db.structure.items.implementation.Ferryman;
 import db.structure.items.implementation.Sequence;
 import db.structure.items.implementation.SystemXML;
+import db.structure.items.implementation.Tarif;
 
 public class FerrymanDaoImpl implements FerrymanDao {
 	private DbDaoInterface dbDao;
@@ -128,6 +130,26 @@ public class FerrymanDaoImpl implements FerrymanDao {
 	public List<Ferryman> findAllFerrymans() {
 		SystemXML systemXML = dbDao.getSystemXML();
 		return systemXML.getRoot().getFerrymans();
+	}
+
+	@Override
+	public void deleteTarif(long id) throws MyException {
+		SystemXML systemXML = dbDao.getSystemXML();
+		List<Ferryman> ferrymans= systemXML.getRoot().getFerrymans();
+		Iterator<Tarif> priceListIterator;
+		for(Ferryman f: ferrymans){
+			priceListIterator=f.getPriceList().iterator();
+			while(priceListIterator.hasNext()){
+				Tarif t=priceListIterator.next();
+				if(t.getId()==id){
+					priceListIterator.remove();
+					return;
+				}
+			}
+			
+		}
+		throw new ElementNotExistInDatabaseException();
+
 	}
 
 }
