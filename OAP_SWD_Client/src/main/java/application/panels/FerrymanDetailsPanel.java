@@ -16,16 +16,22 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 import main.ApplicationClient;
+import oap.utils.exceptions.MyException;
 import state.pattern.impl.context.Context;
 import application.beans.FerrymanDetailsModelBean;
+import application.configuration.controllers.FerrymanDetailsConfigurationController;
 import application.enumeriations.Dialogs;
+import application.mode.Mode;
 import application.panels.abstraction.AbstractPanel;
 import facade.implementation.dts.FerrymanDtsImpl;
 import facade.implementation.dts.TarifDtsImpl;
+import facade.implementation.facades.FerrymanFacadeImpl;
 import facade.interfaces.dts.FerrymanDts;
 import facade.interfaces.dts.TarifDts;
+import facade.interfaces.facades.FerrymanFacade;
 
-public class FerrymanDetailsPanel extends AbstractPanel<FerrymanDetailsModelBean> {
+public class FerrymanDetailsPanel extends
+		AbstractPanel<FerrymanDetailsModelBean> {
 
 	private static final int MANY_ROWS = 0;
 	private static final int PRICELSIT_ROWS = 1;
@@ -43,73 +49,82 @@ public class FerrymanDetailsPanel extends AbstractPanel<FerrymanDetailsModelBean
 	private JTextField name;
 	private JLabel maxWeightLabel;
 	private JLabel priceListSizeLabel;
+	private FerrymanFacade ferrymanFacade=new FerrymanFacadeImpl();
+	private FerrymanDetailsConfigurationController confController;
+	
 	
 	public FerrymanDetailsPanel() {
 		super();
-		dialog=Dialogs.FERRYMAN_DETAILS;
-		retrieveData();
-		buildMainPanel();
-		addTarifButton();
-		addBackButton();
-		addSaveButton();
-		
+		dialog = Dialogs.FERRYMAN_DETAILS;
+	}
+
+	public void init() {
+		content.removeAll();
+//				retrieveData();
+				buildMainPanel();
+				addTarifButton();
+				addBackButton();
+				addSaveButton();
 	}
 
 	private void addTarifButton() {
-		addTarif=new JButton("Dodaj cenê");
+		addTarif = new JButton("Dodaj cenê");
 		ferrymanDetails.add(addTarif);
-		
+
 	}
 
 	private void addSaveButton() {
 		save = new JButton("Zapisz");
+		save.addActionListener(this);
 		footer.add(save, BorderLayout.CENTER);
 	}
 
 	private void buildMainPanel() {
-		mainContent=new JPanel();
+		mainContent = new JPanel();
 		mainContent.setBackground(BACKGROUND);
-		mainContent.setLayout(new GridLayout(ROWS,COLS));
-		ferrymanDetails=new JPanel();
+		mainContent.setLayout(new GridLayout(ROWS, COLS));
+		ferrymanDetails = new JPanel();
 		ferrymanDetails.setBackground(BACKGROUND);
 		ferrymanDetails.add(addLabelsAndFields());
 		priceListPanel = new JPanel();
-		
+
 		priceListPanel.setLayout(new BorderLayout());
 		priceListPanel.setBackground(BACKGROUND);
-		priceListPanel.add(addPriceList(),BorderLayout.CENTER);
+		priceListPanel.add(addPriceList(), BorderLayout.CENTER);
 		JScrollPane scrollPane = new JScrollPane(priceListPanel);
-		scrollPane.setPreferredSize(new Dimension((ApplicationClient.WINDOW_SIZE_X/2)-10,ApplicationClient.WINDOW_SIZE_Y-120));
+		scrollPane.setPreferredSize(new Dimension(
+				(ApplicationClient.WINDOW_SIZE_X / 2) - 10,
+				ApplicationClient.WINDOW_SIZE_Y - 120));
 		mainContent.add(ferrymanDetails);
 		mainContent.add(scrollPane);
 		content.add(mainContent);
 	}
 
 	private JPanel addPriceList() {
-		JPanel newPanel=new JPanel();
+		JPanel newPanel = new JPanel();
 		newPanel.setBackground(BACKGROUND);
-		newPanel.setLayout(new GridLayout(MANY_ROWS,1));
+		newPanel.setLayout(new GridLayout(MANY_ROWS, 1));
 		List<TarifDts> priceList = modelBean.getPriceList();
-		int i=0;
+		int i = 0;
 		newPanel.add(addPriceListCaption());
-		for(TarifDts t: priceList){
-			newPanel.add(addPriceListRow(t,(i++%2==0)));
+		for (TarifDts t : priceList) {
+			newPanel.add(addPriceListRow(t, (i++ % 2 == 0)));
 		}
 		return newPanel;
 	}
 
 	private JPanel addPriceListRow(TarifDts t, boolean isOdd) {
 		Color bgColor;
-		bgColor=isOdd ? Color.LIGHT_GRAY : Color.ORANGE;
-		JPanel panel=new JPanel();
-		panel.setLayout(new GridLayout(PRICELSIT_ROWS,PRICELIST_COLS));
+		bgColor = isOdd ? Color.LIGHT_GRAY : Color.ORANGE;
+		JPanel panel = new JPanel();
+		panel.setLayout(new GridLayout(PRICELSIT_ROWS, PRICELIST_COLS));
 		panel.setBackground(bgColor);
 		panel.setBorder(BorderFactory.createLineBorder(Color.GREEN, 2));
 		JLabel weightLbl = new JLabel();
-		weightLbl.setText(""+t.getWeight());
+		weightLbl.setText("" + t.getWeight());
 		weightLbl.setBackground(WEIGHT_BG);
 		JLabel priceLbl = new JLabel();
-		priceLbl.setText(""+t.getPrice());
+		priceLbl.setText("" + t.getPrice());
 		priceLbl.setBackground(PRICE_BG);
 		panel.add(weightLbl);
 		panel.add(priceLbl);
@@ -118,12 +133,12 @@ public class FerrymanDetailsPanel extends AbstractPanel<FerrymanDetailsModelBean
 		panelTmp.add(panel, BorderLayout.CENTER);
 		return panelTmp;
 	}
-	
+
 	private JPanel addPriceListCaption() {
 		Color bgColor;
-		bgColor=Color.CYAN;
-		JPanel panel=new JPanel();
-		panel.setLayout(new GridLayout(PRICELSIT_ROWS,PRICELIST_COLS));
+		bgColor = Color.CYAN;
+		JPanel panel = new JPanel();
+		panel.setLayout(new GridLayout(PRICELSIT_ROWS, PRICELIST_COLS));
 		panel.setBackground(bgColor);
 		panel.setBorder(BorderFactory.createLineBorder(Color.GREEN, 3));
 		JLabel weightLbl = new JLabel();
@@ -134,7 +149,7 @@ public class FerrymanDetailsPanel extends AbstractPanel<FerrymanDetailsModelBean
 		priceLbl.setBackground(PRICE_BG);
 		panel.add(weightLbl);
 		panel.add(priceLbl);
-		
+
 		JPanel panelTmp = new JPanel();
 		panelTmp.setLayout(new BorderLayout());
 		panelTmp.add(panel, BorderLayout.CENTER);
@@ -142,25 +157,25 @@ public class FerrymanDetailsPanel extends AbstractPanel<FerrymanDetailsModelBean
 	}
 
 	private JPanel addLabelsAndFields() {
-		JPanel panel= new JPanel();
-		panel.setBorder(BorderFactory.createEtchedBorder(Color.RED, Color.YELLOW));
-		panel.setLayout(new GridLayout(3,1,10,10));	
-		JPanel namePanel=new JPanel();
-		namePanel.setLayout(new GridLayout(1,2));
-		nameLabel=new JLabel();
+		JPanel panel = new JPanel();
+		panel.setBorder(BorderFactory.createEtchedBorder(Color.RED,
+				Color.YELLOW));
+		panel.setLayout(new GridLayout(3, 1, 10, 10));
+		JPanel namePanel = new JPanel();
+		namePanel.setLayout(new GridLayout(1, 2));
+		nameLabel = new JLabel();
 		nameLabel.setText("Nazwa: ");
-		name=new JTextField();
-		namePanel.add(nameLabel,BorderLayout.WEST);
-		namePanel.add(name,BorderLayout.EAST);
-		maxWeightLabel=new JLabel();
+		name = new JTextField();
+		namePanel.add(nameLabel, BorderLayout.WEST);
+		namePanel.add(name, BorderLayout.EAST);
+		maxWeightLabel = new JLabel();
 		maxWeightLabel.setText("Maksymalna waga: ");
-		priceListSizeLabel=new JLabel();
+		priceListSizeLabel = new JLabel();
 		priceListSizeLabel.setText("Iloœæ cenników: ");
 		panel.add(namePanel);
 		panel.add(maxWeightLabel);
 		panel.add(priceListSizeLabel);
-		
-		
+
 		return panel;
 	}
 
@@ -173,25 +188,50 @@ public class FerrymanDetailsPanel extends AbstractPanel<FerrymanDetailsModelBean
 	@Override
 	public void back(Context context) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void retrieveData() {
+		confController = FerrymansManagementPanel.detailsControllerConfiguration;
 		modelBean = new FerrymanDetailsModelBean();
-		createTestData(modelBean);
-		
+		// TODO should be deleted createTestData(modelBean);
+		if(confController.getMode()==Mode.UPDATE){
+			long ferrymanId = confController.getFerryman().getId();
+			try {
+				modelBean.setFerryman(ferrymanFacade.getFerrymanById(ferrymanId));
+			} catch (MyException e1) {
+				// TODO exception should be handled
+				
+				return;
+			}
+
+			try {
+				modelBean.setPriceList(ferrymanFacade.getPriceListByFerrymanId(ferrymanId));
+				
+			} catch (MyException e) {
+				// TODO exception should be handled
+				
+				return;
+			}
+			
+		}else{
+			modelBean.setFerryman(new FerrymanDtsImpl());
+			modelBean.setPriceList(new ArrayList<TarifDts>());
+		}
+		init();
 	}
 
+	//TODO should be deleted
 	private void createTestData(FerrymanDetailsModelBean modelBean) {
 		FerrymanDts ferryman = new FerrymanDtsImpl();
 		modelBean.setFerryman(ferryman);
-		List<TarifDts> priceList=new ArrayList<TarifDts>();
-		for(int i=0; i<15; i++){
-			TarifDts t=new TarifDtsImpl();
+		List<TarifDts> priceList = new ArrayList<TarifDts>();
+		for (int i = 0; i < 15; i++) {
+			TarifDts t = new TarifDtsImpl();
 			t.setId(i);
-			t.setPrice(i*100f);
-			t.setWeight(i*100);
+			t.setPrice(i * 100f);
+			t.setWeight(i * 100);
 			priceList.add(t);
 		}
 		modelBean.setPriceList(priceList);
@@ -199,9 +239,52 @@ public class FerrymanDetailsPanel extends AbstractPanel<FerrymanDetailsModelBean
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		super.actionPerformed(e);
 		Object source = e.getSource();
-		
-		
+		Mode mode=confController.getMode();
+		if(source.equals(save)){
+			if(validate()){
+				updateModelBean();
+				if(mode==Mode.CREATE){
+					try {
+						ferrymanFacade.createFerryman(modelBean.getFerryman());
+						for(TarifDts t: modelBean.getPriceList()){
+							long ferrymanId = modelBean.getFerryman().getId();
+							ferrymanFacade.addNewTarifToFerrymanWithGivenId(ferrymanId, t);
+						}
+					} catch (MyException e1) {
+						// TODO exception should be handled
+						System.out.println("Exception1");
+					}
+					
+				}else{
+					try {
+						ferrymanFacade.updateFerryman(modelBean.getFerryman());
+					} catch (MyException e1) {
+						// TODO exception should be handled
+						System.out.println("Exception2");
+					}
+				}
+				
+				
+				ApplicationClient.cards.show(getPanel().getParent(), Dialogs.FERRYMANS_MANAGEMENT.getName());
+			}
+		}
+
+	}
+
+	private void updateModelBean() {
+		FerrymanDts ferryman = modelBean.getFerryman();
+		ferryman.setName(name.getText());
+	}
+
+	/**
+	 * 
+	 * @return true if every field's value is valid
+	 */
+	private boolean validate() {
+		// TODO implement it
+		return true;
 	}
 
 }

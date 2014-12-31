@@ -96,6 +96,11 @@ public class FerrymanFacadeImpl implements FerrymanFacade {
 
 	@Override
 	public void deleteTarifWithGivenId(long id) throws MyException {
-		
+		ferrymanDao.deleteTarif(id);
+	}
+
+	@Override
+	public FerrymanDts getFerrymanById(long id) throws MyException {
+		return ferrymanAssembler.entityToDts(ferrymanDao.getFerrymanById(id));
 	}
 }

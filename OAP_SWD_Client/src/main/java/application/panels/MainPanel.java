@@ -100,6 +100,7 @@ public class MainPanel extends AbstractPanel<MainPanelModelBean> {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		super.actionPerformed(e);
 		Object source = e.getSource();
 		
 		

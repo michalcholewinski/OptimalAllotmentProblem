@@ -8,6 +8,7 @@ import facade.interfaces.dts.TarifDts;
 
 public interface FerrymanFacade {
 	public List<FerrymanDts> getFerrymans();
+	public FerrymanDts getFerrymanById(long id) throws MyException ;
 	public void deleteFerryman(FerrymanDts ferryman) throws MyException;
 	public FerrymanDts updateFerryman(FerrymanDts ferryman) throws MyException;
 	public FerrymanDts createFerryman(FerrymanDts ferryman) throws MyException;

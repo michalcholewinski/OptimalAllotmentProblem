@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:systemXML xmlns:ns2="SystemXML">
+    <root maxWeigth="0">
+        <ferrymans>
+            <ferryman>
+                <id>0</id>
+                <insertDate>2014-12-31T22:05:58.311+01:00</insertDate>
+                <name>gfsdcv</name>
+                <priceList/>
+                <updateDate>2014-12-31T22:05:58.311+01:00</updateDate>
+            </ferryman>
+        </ferrymans>
+        <sequence>
+            <tarifCurrvalSequence>0</tarifCurrvalSequence>
+            <ferrymanCurrvalSequence>1</ferrymanCurrvalSequence>
+            <userCurrvalSequence>0</userCurrvalSequence>
+        </sequence>
+        <users/>
+    </root>
+</ns2:systemXML>

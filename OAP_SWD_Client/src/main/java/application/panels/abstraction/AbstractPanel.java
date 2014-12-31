@@ -11,17 +11,19 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import facade.implementation.facades.CommonFacadeImpl;
+import facade.interfaces.facades.CommonFacade;
 import main.ApplicationClient;
 import state.interfaces.State;
-import state.pattern.impl.context.Context;
 import application.enumeriations.Dialogs;
 import application.panels.FerrymanDetailsPanel;
+import application.panels.FerrymansManagementPanel;
 import application.panels.UserDetailsPanel;
 
 public abstract class AbstractPanel<T> implements State {
 	private static final int _FONT_SIZE = 16;
-//	protected Context context;
-	
+	// protected Context context;
+
 	protected Dialogs dialog;
 	private final JPanel panel;
 	protected final JPanel content;
@@ -35,8 +37,10 @@ public abstract class AbstractPanel<T> implements State {
 	private JButton back;
 
 	protected T modelBean;
+	private CommonFacade commonFacade;
 
 	public AbstractPanel() {
+		commonFacade=new CommonFacadeImpl();
 		panel = new JPanel();
 
 		panel.setLayout(new BorderLayout());
@@ -53,9 +57,9 @@ public abstract class AbstractPanel<T> implements State {
 
 	public abstract void retrieveData();
 
-//	public void setContext(Context context) {
-//		this.context = context;
-//	}
+	// public void setContext(Context context) {
+	// this.context = context;
+	// }
 
 	private void createHeader() {
 		header = new JPanel();
@@ -82,6 +86,7 @@ public abstract class AbstractPanel<T> implements State {
 		footer.setBackground(BACKGROUND);
 		footer.setLayout(new BorderLayout());
 		exit = new JButton("WYJSCIE");
+		exit.addActionListener(this);
 		footer.add(exit, BorderLayout.EAST);
 
 	}
@@ -93,14 +98,24 @@ public abstract class AbstractPanel<T> implements State {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
+		
+		
 		if (source.equals(back)) {
 			if (this instanceof UserDetailsPanel) {
 				switchPanel(Dialogs.USERS_MANAGEMENT);
 			} else if (this instanceof FerrymanDetailsPanel) {
+				State panel = ApplicationClient.states
+						.stream()
+						.filter(item -> item.getDialogsName() == Dialogs.FERRYMANS_MANAGEMENT)
+						.findFirst().get();
+				((FerrymansManagementPanel)panel).init();
 				switchPanel(Dialogs.FERRYMANS_MANAGEMENT);
 			} else {
 				switchPanel(Dialogs.MAIN_PANEL);
 			}
+		}else if(source.equals(exit)){
+			commonFacade.commit();
+			System.exit(0);
 		}
 
 	}
@@ -110,7 +125,7 @@ public abstract class AbstractPanel<T> implements State {
 		ApplicationClient.cards.show(parent, dialog.getName());
 
 	}
-	
+
 	@Override
 	public Dialogs getDialogsName() {
 		return dialog;

@@ -29,7 +29,7 @@ public class FerrymanDaoImpl implements FerrymanDao {
 	}
 
 	@Override
-	public Ferryman getFerrymanById(Long id) {
+	public Ferryman getFerrymanById(Long id) throws ElementNotExistInDatabaseException{
 		SystemXML systemXML = dbDao.getSystemXML();
 		for (Ferryman ferryman : systemXML.getRoot().getFerrymans()) {
 			if (ferryman.getId() == id) {

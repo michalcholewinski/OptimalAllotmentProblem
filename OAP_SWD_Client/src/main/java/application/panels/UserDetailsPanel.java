@@ -97,8 +97,7 @@ public class UserDetailsPanel extends AbstractPanel<UserDetailsModelBean> {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
+		super.actionPerformed(e);
 	}
 
 }

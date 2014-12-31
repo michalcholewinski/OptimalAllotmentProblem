@@ -14,13 +14,16 @@ public class FerrymanAssembler {
 		FerrymanDts ferryman = new FerrymanDtsImpl();
 		ferryman.setId(entity.getId());
 		List<Tarif> priceList = entity.getPriceList();
-		Tarif t = priceList.stream().max(Comparator.comparing(item -> item.getWeight())).get();
-		ferryman.setMaxWeight(t.getWeight());
+		if (priceList.size() > 0) {
+			Tarif t = priceList.stream()
+					.max(Comparator.comparing(item -> item.getWeight())).get();
+			ferryman.setMaxWeight(t.getWeight());
+		}
 		ferryman.setPriceListSize(priceList.size());
 		return ferryman;
 	}
-	
-	public Ferryman dtsToEntity(FerrymanDts dts){
+
+	public Ferryman dtsToEntity(FerrymanDts dts) {
 		Ferryman ferryman = new Ferryman();
 		ferryman.setId(dts.getId());
 		ferryman.setName(dts.getName());

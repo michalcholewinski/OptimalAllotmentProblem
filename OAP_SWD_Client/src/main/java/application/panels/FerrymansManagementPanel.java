@@ -16,12 +16,19 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import main.ApplicationClient;
+import oap.utils.exceptions.MyException;
+import state.interfaces.State;
 import state.pattern.impl.context.Context;
 import application.beans.FerrymansManagementModelBean;
+import application.binding.button.dts.PairDetailsButtonFerrymanDts;
+import application.configuration.controllers.FerrymanDetailsConfigurationController;
 import application.enumeriations.Dialogs;
+import application.mode.Mode;
 import application.panels.abstraction.AbstractPanel;
 import facade.implementation.dts.FerrymanDtsImpl;
+import facade.implementation.facades.FerrymanFacadeImpl;
 import facade.interfaces.dts.FerrymanDts;
+import facade.interfaces.facades.FerrymanFacade;
 
 public class FerrymansManagementPanel extends
 		AbstractPanel<FerrymansManagementModelBean> {
@@ -30,19 +37,32 @@ public class FerrymansManagementPanel extends
 	private JScrollPane ferrymansList;
 	private JPanel ferrymansListPanel;
 	private JButton newFerryman;
+	private List<PairDetailsButtonFerrymanDts> detailsButtonDtsPairList;
+	private List<PairDetailsButtonFerrymanDts> deleteButtonDtsPairList;
+	private FerrymanFacade ferrymanFacade;
+	static FerrymanDetailsConfigurationController detailsControllerConfiguration;
 
 	public FerrymansManagementPanel() {
 		super();
 		dialog = Dialogs.FERRYMANS_MANAGEMENT;
+		ferrymanFacade = new FerrymanFacadeImpl();
+		init();
+
+	}
+
+	public void init() {
+		detailsButtonDtsPairList = new ArrayList<PairDetailsButtonFerrymanDts>();
+		deleteButtonDtsPairList = new ArrayList<PairDetailsButtonFerrymanDts>();
 		retrieveData();
+		content.removeAll();
 		buildContentPanel();
 		addBackButton();
 		addNewFerrymanButton();
-
 	}
 
 	private void addNewFerrymanButton() {
 		newFerryman = new JButton("Dodaj przewoŸnika");
+		newFerryman.addActionListener(this);
 		footer.add(newFerryman, BorderLayout.CENTER);
 	}
 
@@ -90,7 +110,8 @@ public class FerrymansManagementPanel extends
 	private void prepareRow(FerrymanDts ferryman, boolean isOdd) {
 		JButton details = new JButton("Szczegó³y");
 		JButton delete = new JButton("Usuñ");
-
+		registerDeleteButton(delete, ferryman);
+		registerDetailsButton(details, ferryman);
 		Color bgColor;
 		JLabel label = new JLabel();
 		label.setText("Nazwa: " + ferryman.getName() + " Maksymalna waga: "
@@ -122,18 +143,80 @@ public class FerrymansManagementPanel extends
 	@Override
 	public void retrieveData() {
 		modelBean = new FerrymansManagementModelBean();
-		modelBean.setFerrymans(createTestFerrymanList()); // only for testing
+		// TODO should be deleted
+		// modelBean.setFerrymans(createTestFerrymanList()); // only for testing
 
+		modelBean.setFerrymans(ferrymanFacade.getFerrymans());
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		super.actionPerformed(e);
+		Object source = e.getSource();
+
+		if (source.equals(newFerryman)) {
+			showDetailsForNewFerryman();
+		}
+
+		for (PairDetailsButtonFerrymanDts p : deleteButtonDtsPairList) {
+			if (source.equals(p.getButton())) {
+				try {
+					ferrymanFacade.deleteFerryman(p.getFerryman());
+					return;
+				} catch (MyException e1) {
+					// TODO should be validated
+				}
+			}
+		}
+
+		for (PairDetailsButtonFerrymanDts p : detailsButtonDtsPairList) {
+			if (source.equals(p.getButton())) {
+				showDetailsFor(p.getFerryman());
+				break;
+			}
+		}
+
 	}
-	
-	private void registerDetailsButton(JButton button, FerrymanDts ferryman){
+
+	private void showDetailsForNewFerryman() {
+		detailsControllerConfiguration = new FerrymanDetailsConfigurationController(
+				new FerrymanDtsImpl(), Mode.CREATE);
+		String dialogName = Dialogs.FERRYMAN_DETAILS.getName();
+		State detailsPanel = ApplicationClient.states
+				.stream()
+				.filter(item -> item.getDialogsName().getName()
+						.equals(dialogName)).findFirst().get();
+		((FerrymanDetailsPanel) detailsPanel).retrieveData();
+		ApplicationClient.cards.show(getPanel().getParent(), dialogName);
+
+	}
+
+	private void showDetailsFor(FerrymanDts ferryman) {
+		detailsControllerConfiguration = new FerrymanDetailsConfigurationController(
+				ferryman, Mode.UPDATE);
+		String dialogName = Dialogs.FERRYMAN_DETAILS.getName();
+		State detailsPanel = ApplicationClient.states
+				.stream()
+				.filter(item -> item.getDialogsName().getName()
+						.equals(dialogName)).findFirst().get();
+
+		((FerrymanDetailsPanel) detailsPanel).retrieveData();
+		ApplicationClient.cards.show(getPanel().getParent(), dialogName);
+
+	}
+
+	private void registerDetailsButton(JButton button, FerrymanDts ferryman) {
 		button.addActionListener(this);
-		
+		detailsButtonDtsPairList.add(new PairDetailsButtonFerrymanDts(button,
+				ferryman));
+
+	}
+
+	private void registerDeleteButton(JButton button, FerrymanDts ferryman) {
+		button.addActionListener(this);
+		deleteButtonDtsPairList.add(new PairDetailsButtonFerrymanDts(button,
+				ferryman));
+
 	}
 
 }

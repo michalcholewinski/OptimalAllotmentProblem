@@ -11,7 +11,7 @@ import oap.utils.exceptions.NotCompleteDataException;
 import db.structure.items.implementation.Ferryman;
 
 public interface FerrymanDao {
-	public Ferryman getFerrymanById(Long id);
+	public Ferryman getFerrymanById(Long id) throws ElementNotExistInDatabaseException;
 
 	public Ferryman createFerryman(Ferryman ferryman)
 			throws NonUniqueDataException, ElementExistInDatabaseException,
