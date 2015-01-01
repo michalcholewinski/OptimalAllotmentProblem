@@ -3,16 +3,37 @@
     <root maxWeigth="0">
         <ferrymans>
             <ferryman>
-                <id>0</id>
-                <insertDate>2014-12-31T22:05:58.311+01:00</insertDate>
-                <name>gfsdcv</name>
+                <id>6</id>
+                <insertDate>2015-01-01T12:08:58.942+01:00</insertDate>
+                <name>dsds</name>
                 <priceList/>
-                <updateDate>2014-12-31T22:05:58.311+01:00</updateDate>
+                <updateDate>2015-01-01T12:08:58.942+01:00</updateDate>
+            </ferryman>
+            <ferryman>
+                <id>7</id>
+                <insertDate>2015-01-01T12:14:18.355+01:00</insertDate>
+                <name>e2e2e2</name>
+                <priceList/>
+                <updateDate>2015-01-01T12:14:18.355+01:00</updateDate>
+            </ferryman>
+            <ferryman>
+                <id>8</id>
+                <insertDate>2015-01-01T12:16:59.547+01:00</insertDate>
+                <name>dwdwdw</name>
+                <priceList/>
+                <updateDate>2015-01-01T12:16:59.547+01:00</updateDate>
+            </ferryman>
+            <ferryman>
+                <id>9</id>
+                <insertDate>2015-01-01T12:17:16.157+01:00</insertDate>
+                <name>Michal</name>
+                <priceList/>
+                <updateDate>2015-01-01T14:12:03.398+01:00</updateDate>
             </ferryman>
         </ferrymans>
         <sequence>
             <tarifCurrvalSequence>0</tarifCurrvalSequence>
-            <ferrymanCurrvalSequence>1</ferrymanCurrvalSequence>
+            <ferrymanCurrvalSequence>10</ferrymanCurrvalSequence>
             <userCurrvalSequence>0</userCurrvalSequence>
         </sequence>
         <users/>

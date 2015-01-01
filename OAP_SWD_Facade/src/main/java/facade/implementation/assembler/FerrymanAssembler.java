@@ -13,6 +13,7 @@ public class FerrymanAssembler {
 	public FerrymanDts entityToDts(Ferryman entity) {
 		FerrymanDts ferryman = new FerrymanDtsImpl();
 		ferryman.setId(entity.getId());
+		ferryman.setName(entity.getName());
 		List<Tarif> priceList = entity.getPriceList();
 		if (priceList.size() > 0) {
 			Tarif t = priceList.stream()

@@ -47,6 +47,8 @@ public class FerrymansManagementPanel extends
 		dialog = Dialogs.FERRYMANS_MANAGEMENT;
 		ferrymanFacade = new FerrymanFacadeImpl();
 		init();
+		addBackButton();
+		addNewFerrymanButton();
 
 	}
 
@@ -56,8 +58,6 @@ public class FerrymansManagementPanel extends
 		retrieveData();
 		content.removeAll();
 		buildContentPanel();
-		addBackButton();
-		addNewFerrymanButton();
 	}
 
 	private void addNewFerrymanButton() {
@@ -81,7 +81,6 @@ public class FerrymansManagementPanel extends
 		ferrymansList.setBackground(BACKGROUND);
 		contentPanel.add(ferrymansList);
 		content.add(contentPanel);
-
 		createFerrymanList();
 	}
 
@@ -153,52 +152,62 @@ public class FerrymansManagementPanel extends
 	public void actionPerformed(ActionEvent e) {
 		super.actionPerformed(e);
 		Object source = e.getSource();
-
+		FerrymanDts ferryman=null;
+		Dialogs nextDialog = Dialogs.FERRYMANS_MANAGEMENT;
 		if (source.equals(newFerryman)) {
 			showDetailsForNewFerryman();
+			return;
 		}
 
 		for (PairDetailsButtonFerrymanDts p : deleteButtonDtsPairList) {
 			if (source.equals(p.getButton())) {
 				try {
 					ferrymanFacade.deleteFerryman(p.getFerryman());
-					return;
+					nextDialog = Dialogs.FERRYMANS_MANAGEMENT;
+					switchPanel(Dialogs.MAIN_PANEL);
+					init();
+					switchPanel(nextDialog);
+					break;
 				} catch (MyException e1) {
 					// TODO should be validated
+					System.out.println("Nie usunalem");
 				}
 			}
 		}
 
 		for (PairDetailsButtonFerrymanDts p : detailsButtonDtsPairList) {
 			if (source.equals(p.getButton())) {
-				showDetailsFor(p.getFerryman());
+				nextDialog = Dialogs.FERRYMAN_DETAILS;
+				ferryman=p.getFerryman();
+				showDetailsFor(ferryman);
 				break;
 			}
 		}
-
 	}
 
 	private void showDetailsForNewFerryman() {
 		detailsControllerConfiguration = new FerrymanDetailsConfigurationController(
 				new FerrymanDtsImpl(), Mode.CREATE);
 		String dialogName = Dialogs.FERRYMAN_DETAILS.getName();
-		State detailsPanel = ApplicationClient.states
-				.stream()
-				.filter(item -> item.getDialogsName().getName()
-						.equals(dialogName)).findFirst().get();
+		State detailsPanel = getState(dialogName);
 		((FerrymanDetailsPanel) detailsPanel).retrieveData();
 		ApplicationClient.cards.show(getPanel().getParent(), dialogName);
 
+	}
+
+	private State getState(String dialogName) {
+		State state = ApplicationClient.states
+				.stream()
+				.filter(item -> item.getDialogsName().getName()
+						.equals(dialogName)).findFirst().get();
+		return state;
 	}
 
 	private void showDetailsFor(FerrymanDts ferryman) {
 		detailsControllerConfiguration = new FerrymanDetailsConfigurationController(
 				ferryman, Mode.UPDATE);
 		String dialogName = Dialogs.FERRYMAN_DETAILS.getName();
-		State detailsPanel = ApplicationClient.states
-				.stream()
-				.filter(item -> item.getDialogsName().getName()
-						.equals(dialogName)).findFirst().get();
+		State detailsPanel = getState(dialogName);
 
 		((FerrymanDetailsPanel) detailsPanel).retrieveData();
 		ApplicationClient.cards.show(getPanel().getParent(), dialogName);

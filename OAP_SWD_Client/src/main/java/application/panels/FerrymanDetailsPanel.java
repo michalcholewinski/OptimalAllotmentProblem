@@ -11,12 +11,14 @@ import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 import main.ApplicationClient;
 import oap.utils.exceptions.MyException;
+import state.interfaces.State;
 import state.pattern.impl.context.Context;
 import application.beans.FerrymanDetailsModelBean;
 import application.configuration.controllers.FerrymanDetailsConfigurationController;
@@ -49,28 +51,29 @@ public class FerrymanDetailsPanel extends
 	private JTextField name;
 	private JLabel maxWeightLabel;
 	private JLabel priceListSizeLabel;
-	private FerrymanFacade ferrymanFacade=new FerrymanFacadeImpl();
+	private FerrymanFacade ferrymanFacade = new FerrymanFacadeImpl();
 	private FerrymanDetailsConfigurationController confController;
-	
-	
+
 	public FerrymanDetailsPanel() {
 		super();
 		dialog = Dialogs.FERRYMAN_DETAILS;
+		addBackButton();
+		addSaveButton();
 	}
 
 	public void init() {
 		content.removeAll();
-//				retrieveData();
-				buildMainPanel();
-				addTarifButton();
-				addBackButton();
-				addSaveButton();
+		// retrieveData();
+		buildMainPanel();
+		addTarifButton();
 	}
 
 	private void addTarifButton() {
-		addTarif = new JButton("Dodaj cenê");
+		if (addTarif == null) {
+			addTarif = new JButton("Dodaj cenê");
+			addTarif.addActionListener(this);
+		}
 		ferrymanDetails.add(addTarif);
-
 	}
 
 	private void addSaveButton() {
@@ -196,68 +199,63 @@ public class FerrymanDetailsPanel extends
 		confController = FerrymansManagementPanel.detailsControllerConfiguration;
 		modelBean = new FerrymanDetailsModelBean();
 		// TODO should be deleted createTestData(modelBean);
-		if(confController.getMode()==Mode.UPDATE){
+		if (confController.getMode() == Mode.UPDATE) {
 			long ferrymanId = confController.getFerryman().getId();
 			try {
-				modelBean.setFerryman(ferrymanFacade.getFerrymanById(ferrymanId));
+				modelBean.setFerryman(ferrymanFacade
+						.getFerrymanById(ferrymanId));
 			} catch (MyException e1) {
 				// TODO exception should be handled
-				
+
 				return;
 			}
 
 			try {
-				modelBean.setPriceList(ferrymanFacade.getPriceListByFerrymanId(ferrymanId));
-				
+				modelBean.setPriceList(ferrymanFacade
+						.getPriceListByFerrymanId(ferrymanId));
+
 			} catch (MyException e) {
 				// TODO exception should be handled
-				
+
 				return;
 			}
-			
-		}else{
+
+		} else {
 			modelBean.setFerryman(new FerrymanDtsImpl());
 			modelBean.setPriceList(new ArrayList<TarifDts>());
 		}
 		init();
-	}
-
-	//TODO should be deleted
-	private void createTestData(FerrymanDetailsModelBean modelBean) {
-		FerrymanDts ferryman = new FerrymanDtsImpl();
-		modelBean.setFerryman(ferryman);
-		List<TarifDts> priceList = new ArrayList<TarifDts>();
-		for (int i = 0; i < 15; i++) {
-			TarifDts t = new TarifDtsImpl();
-			t.setId(i);
-			t.setPrice(i * 100f);
-			t.setWeight(i * 100);
-			priceList.add(t);
-		}
-		modelBean.setPriceList(priceList);
+		name.setText(modelBean.getFerryman().getName());
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		super.actionPerformed(e);
 		Object source = e.getSource();
-		Mode mode=confController.getMode();
-		if(source.equals(save)){
-			if(validate()){
+		Mode mode = confController.getMode();
+
+		if (source.equals(addTarif)) {
+			String message="Podaj cenê dla wagi <<WAGA>>";
+			String price = JOptionPane.showInputDialog(message);
+			//TODO find last weight in priceList, add next 
+		
+		} else if (source.equals(save)) {
+			if (validate()) {
 				updateModelBean();
-				if(mode==Mode.CREATE){
+				if (mode == Mode.CREATE) {
 					try {
 						ferrymanFacade.createFerryman(modelBean.getFerryman());
-						for(TarifDts t: modelBean.getPriceList()){
+						for (TarifDts t : modelBean.getPriceList()) {
 							long ferrymanId = modelBean.getFerryman().getId();
-							ferrymanFacade.addNewTarifToFerrymanWithGivenId(ferrymanId, t);
+							ferrymanFacade.addNewTarifToFerrymanWithGivenId(
+									ferrymanId, t);
 						}
 					} catch (MyException e1) {
 						// TODO exception should be handled
 						System.out.println("Exception1");
 					}
-					
-				}else{
+
+				} else {
 					try {
 						ferrymanFacade.updateFerryman(modelBean.getFerryman());
 					} catch (MyException e1) {
@@ -265,9 +263,15 @@ public class FerrymanDetailsPanel extends
 						System.out.println("Exception2");
 					}
 				}
-				
-				
-				ApplicationClient.cards.show(getPanel().getParent(), Dialogs.FERRYMANS_MANAGEMENT.getName());
+
+				Dialogs ferrymanDialogName = Dialogs.FERRYMANS_MANAGEMENT;
+				State state = ApplicationClient.states
+						.stream()
+						.filter(item -> item.getDialogsName() == ferrymanDialogName)
+						.findFirst().get();
+
+				((FerrymansManagementPanel) state).init();
+				switchPanel(ferrymanDialogName);
 			}
 		}
 

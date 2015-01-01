@@ -105,7 +105,7 @@ public class FerrymanDaoImpl implements FerrymanDao {
 		Iterator<Ferryman> it = systemXML.getRoot().getFerrymans().iterator();
 		while (it.hasNext()) {
 			Ferryman f = it.next();
-			if (f.equals(ferryman)) {
+			if (f.getId()==ferryman.getId()) {
 				it.remove();
 				return;
 			}

@@ -57,10 +57,6 @@ public abstract class AbstractPanel<T> implements State {
 
 	public abstract void retrieveData();
 
-	// public void setContext(Context context) {
-	// this.context = context;
-	// }
-
 	private void createHeader() {
 		header = new JPanel();
 		header.setBackground(BACKGROUND);
@@ -94,7 +90,8 @@ public abstract class AbstractPanel<T> implements State {
 	public JPanel getPanel() {
 		return panel;
 	}
-
+	
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
@@ -103,6 +100,7 @@ public abstract class AbstractPanel<T> implements State {
 		if (source.equals(back)) {
 			if (this instanceof UserDetailsPanel) {
 				switchPanel(Dialogs.USERS_MANAGEMENT);
+				return;
 			} else if (this instanceof FerrymanDetailsPanel) {
 				State panel = ApplicationClient.states
 						.stream()
@@ -110,14 +108,15 @@ public abstract class AbstractPanel<T> implements State {
 						.findFirst().get();
 				((FerrymansManagementPanel)panel).init();
 				switchPanel(Dialogs.FERRYMANS_MANAGEMENT);
+				return;
 			} else {
 				switchPanel(Dialogs.MAIN_PANEL);
+				return;
 			}
 		}else if(source.equals(exit)){
 			commonFacade.commit();
 			System.exit(0);
 		}
-
 	}
 
 	protected void switchPanel(Dialogs dialog) {
