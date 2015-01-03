@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -35,6 +36,7 @@ import facade.interfaces.facades.FerrymanFacade;
 public class FerrymanDetailsPanel extends
 		AbstractPanel<FerrymanDetailsModelBean> {
 
+	private static final int PALLET_WEIGHT = 100;
 	private static final int MANY_ROWS = 0;
 	private static final int PRICELSIT_ROWS = 1;
 	private static final int PRICELIST_COLS = 2;
@@ -66,6 +68,7 @@ public class FerrymanDetailsPanel extends
 		// retrieveData();
 		buildMainPanel();
 		addTarifButton();
+		addTarif.setEnabled(confController.getMode()==Mode.UPDATE);
 	}
 
 	private void addTarifButton() {
@@ -235,10 +238,22 @@ public class FerrymanDetailsPanel extends
 		Mode mode = confController.getMode();
 
 		if (source.equals(addTarif)) {
-			String message="Podaj cenê dla wagi <<WAGA>>";
-			String price = JOptionPane.showInputDialog(message);
-			//TODO find last weight in priceList, add next 
-		
+			int weight = getActualMaxWeitght();
+			weight += PALLET_WEIGHT;
+			String message = "Podaj cenê dla wagi " + weight + " kg";
+			String priceString = JOptionPane.showInputDialog(message);
+			if(priceString==null) return;
+			long price = Long.parseLong(priceString);
+			TarifDts tarif = new TarifDtsImpl();
+			tarif.setPrice(price);
+			tarif.setWeight(weight);
+			try {
+				ferrymanFacade.addNewTarifToFerrymanWithGivenId(modelBean
+						.getFerryman().getId(), tarif);
+			} catch (MyException e1) {
+				System.out.println("Nie dodano");
+			}
+
 		} else if (source.equals(save)) {
 			if (validate()) {
 				updateModelBean();
@@ -275,6 +290,14 @@ public class FerrymanDetailsPanel extends
 			}
 		}
 
+	}
+
+	private int getActualMaxWeitght() {
+		if (modelBean.getPriceList().size() == 0)
+			return 0;
+		return modelBean.getPriceList().stream()
+				.max(Comparator.comparing(item -> item.getWeight())).get()
+				.getWeight();
 	}
 
 	private void updateModelBean() {

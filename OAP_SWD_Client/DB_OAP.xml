@@ -6,8 +6,30 @@
                 <id>6</id>
                 <insertDate>2015-01-01T12:08:58.942+01:00</insertDate>
                 <name>dsds</name>
-                <priceList/>
-                <updateDate>2015-01-01T12:08:58.942+01:00</updateDate>
+                <priceList>
+                    <tarif>
+                        <id>0</id>
+                        <weight>100</weight>
+                        <price>1.0</price>
+                        <insertDate>2015-01-02T23:59:18.628+01:00</insertDate>
+                        <updateDate>2015-01-02T23:59:18.628+01:00</updateDate>
+                    </tarif>
+                    <tarif>
+                        <id>0</id>
+                        <weight>200</weight>
+                        <price>333.0</price>
+                        <insertDate>2015-01-02T23:59:36.011+01:00</insertDate>
+                        <updateDate>2015-01-02T23:59:36.011+01:00</updateDate>
+                    </tarif>
+                    <tarif>
+                        <id>0</id>
+                        <weight>300</weight>
+                        <price>333.0</price>
+                        <insertDate>2015-01-03T00:02:40.242+01:00</insertDate>
+                        <updateDate>2015-01-03T00:02:40.242+01:00</updateDate>
+                    </tarif>
+                </priceList>
+                <updateDate>2015-01-03T00:02:40.242+01:00</updateDate>
             </ferryman>
             <ferryman>
                 <id>7</id>

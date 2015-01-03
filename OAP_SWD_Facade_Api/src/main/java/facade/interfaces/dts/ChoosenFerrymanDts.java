@@ -1,6 +1,6 @@
 package facade.interfaces.dts;
 
-public interface ChoosenFarrymanDts {
+public interface ChoosenFerrymanDts {
 	public long getId();
 	public void setId(long id);
 	public String getName();
